@@ -13,18 +13,27 @@ public class Infectado extends Personajes {
 	public Infectado(Punto p) {
 		super(100,10,10);
 		this.setPunto(p);
-		this.cambiarImagen("Imagenes/test1.png");
+		this.cambiarImagen("Imagenes/zombie.gif");
 		visitor = new VisitorInfectado(this);
-		hitbox_zombie = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),getAncho(),getLargo());
+		hitbox_zombie = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
 	
 	public Rectangle getHitbox() {
-		return hitbox_zombie;
+		return new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
 	
 	public void recibirDaño() {
-		this.vidas=vidas-5;
-		System.out.println("recibe daño el zombie, vida:"+vidas);
+		if(vidas>5) {
+			this.vidas=vidas-5;
+			System.out.println("recibe daño el zombie, vida:"+vidas);
+		}else {
+			this.vidas=vidas-5;
+			System.out.println("el zombie murio, vida:"+vidas);
+			mapa.getGui().remove(this.getImagen());
+			mapa.getGui().repaint();
+			mapa.getListaInfectados().remove(this);
+			
+		}
 	}
 
 	@Override

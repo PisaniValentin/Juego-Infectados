@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import GameObjects.GameObject;
+import Juego.GUI;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
@@ -17,7 +18,7 @@ protected int rango,daño,velocidad,ancho,alto;
 protected JLabel imagen;
 protected Punto punto;	
 protected Mapa mapa;
-protected JPanel frame;
+protected GUI frame;
 	
 	public Proyectil(int rango,int daño,Punto punto) {
 		this.rango = rango;
@@ -27,14 +28,13 @@ protected JPanel frame;
 		imagen = new JLabel(icono_imagen);
 		ancho = icono_imagen.getIconWidth();
 		alto = icono_imagen.getIconHeight();
-		
 	}
 	public abstract Rectangle getHitbox();
 	
-	public void setFrame(JPanel frame) {
-		this.frame = frame;
+	public void setFrame(GUI gui) {
+		this.frame = gui;
 	}
-	public JPanel getFrame() {
+	public GUI getFrame() {
 		return frame;
 	}
 

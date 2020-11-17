@@ -14,7 +14,8 @@ public class Jugador extends Personajes{
 	public Jugador() {
 		super(100,0,4);
 		visitor = new VisitorJugador(this);
-		cambiarImagen("Imagenes/test1.png");
+		rango=300;
+		cambiarImagen("Imagenes/jugador.png");
 	}
 	
 	@Override
@@ -35,7 +36,6 @@ public class Jugador extends Personajes{
 
 	@Override
 	public void accept(Visitor visitor) {
-		// TODO Auto-generated method stub
 		
 	}
 

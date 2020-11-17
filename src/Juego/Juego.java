@@ -17,15 +17,15 @@ protected Mapa mapa;
 		gui.setMapa(mapa);
 		Personajes personaje = new Jugador();
 		
-		Punto punto = new Punto(55,185);
+		Punto punto = new Punto(113,445);
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);
 		mapa.agregarInfectadoTest();
+		
 		Controlador c_jugador = new ControladorPersonaje();
 		c_jugador.setPersonaje(personaje);
 		c_jugador.setGUI(gui);
-		c_jugador.setTerreno(gui.getTerreno());
 		
 		gui.addKeyListener((ControladorPersonaje) c_jugador);
 		

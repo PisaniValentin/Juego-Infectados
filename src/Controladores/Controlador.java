@@ -11,12 +11,10 @@ import Proyectiles.Proyectil;
 
 public abstract class Controlador extends Thread {
 protected Proyectil proyectil;
-protected JPanel terreno;
 protected Punto punto;
 protected Personajes personaje;
 protected JLabel imagen;
-protected int ancho;
-protected int largo;
+protected int ancho,largo;
 protected GUI gui;
 protected Mapa mapa;
 
@@ -56,12 +54,6 @@ public void setProyectil(Proyectil p) {
 	this.proyectil = p;
 }
 
-public JPanel getTerreno() {
-	return terreno;
-}
-public void setTerreno(JPanel terreno) {
-	this.terreno = terreno;
-}
 
 
 

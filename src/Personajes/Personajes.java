@@ -8,13 +8,11 @@ import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
 public abstract class Personajes extends GameObject{
-	protected int ancho;
-	protected int largo;
+	protected int ancho, alto,rango;
 	protected JLabel labelImagen;
 	protected Punto punto;
 	protected JLabel imagen;
 	protected int vidas,cargaViral,velocidad;
-	protected Mapa mapa;
 	
 	public abstract void atacar();
 	public abstract void interactuar();
@@ -27,7 +25,11 @@ public abstract class Personajes extends GameObject{
 		this.velocidad = velocidad;
 		imagen=null;
 		punto=null;
-		
+		rango=0;
+	}
+	
+	public int getRango() {
+		return rango;
 	}
 
 }

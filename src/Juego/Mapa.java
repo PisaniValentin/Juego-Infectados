@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
+import Controladores.Controlador;
+import Controladores.ControladorInfectados;
 import Personajes.Infectado;
 import Personajes.Personajes;
 import Proyectiles.Proyectil;
@@ -15,6 +17,7 @@ protected Juego juego;
 protected Personajes jugador;
 protected List<Personajes> lista_infectados;
 protected List<Proyectil> lista_proyectiles;
+protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 
 	public Mapa(Juego juego,GUI gui) {
 		this.juego = juego;
@@ -44,14 +47,14 @@ protected List<Proyectil> lista_proyectiles;
 		int x = p.getPunto().getX();
 		int y = p.getPunto().getY();
 		int ancho = p.getAncho() ;
-		int alto = p.getLargo();
+		int alto = p.getAlto();
 		JLabel imagen = p.getImagen();
 		imagen.setLocation(x,y);
 		imagen.setSize(ancho, alto);
 		imagen.setVisible(true);
 		jugador= p;
-		gui.getTerreno().add(jugador.getImagen());
-		gui.getTerreno().repaint();
+		gui.add(jugador.getImagen());
+		gui.repaint();
 		
 	}
 	
@@ -59,20 +62,27 @@ protected List<Proyectil> lista_proyectiles;
 		lista_proyectiles.add(proyectil);
 	}
 	
-	public void agregarInfectado(Infectado infectado,Punto punto) {
+	public void agregarInfectado(Infectado infectado,Punto spawn) {
 		
 	}
 	
 	public void agregarInfectadoTest() {
+		Controlador c_infectado = new ControladorInfectados();
+		
 		Punto punto = new Punto(80,60);
 		Personajes zombie = new Infectado(punto);
+		c_infectado.setPersonaje(zombie);
+		c_infectado.setGUI(gui);
 		
+		zombie.setMapa(this);
 		zombie.getImagen().setLocation(80,60);
 		zombie.setPunto(punto);
-		zombie.getImagen().setSize(60,60);
+		zombie.getImagen().setSize(44,64);
 		lista_infectados.add(zombie);
-		gui.getTerreno().add(zombie.getImagen());
-		gui.getTerreno().repaint();
+		gui.add(zombie.getImagen());
+		c_infectado.start();
+		
+		gui.repaint();
 	}
 
 	

@@ -1,5 +1,7 @@
 package GameObjects;
 
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -14,7 +16,8 @@ public abstract class GameObject {
 	protected Punto punto;
 	protected JLabel imagen;
 	protected Visitor visitor;
-	
+
+	public abstract Rectangle getHitbox();
 	public abstract void accept(Visitor visitor);
 	
 	public Visitor getVisitor() {
@@ -31,7 +34,7 @@ public abstract class GameObject {
 	public int getAncho() {
 		return ancho ;
 	}
-	public int getLargo() {
+	public int getAlto() {
 		return alto ;
 	}	
 	public Punto getPunto() {
@@ -46,6 +49,7 @@ public abstract class GameObject {
 		imagen = new JLabel(icono_imagen);
 		ancho = icono_imagen.getIconWidth();
 		alto = icono_imagen.getIconHeight();
+		System.out.println("el ancho es:"+ancho+","+"el alto es:"+alto);
 	}
 	
 	public JLabel getImagen() {
@@ -54,4 +58,5 @@ public abstract class GameObject {
 	public void setImagen(JLabel imagen) {
 		this.imagen = imagen ;
 	}
+
 }
