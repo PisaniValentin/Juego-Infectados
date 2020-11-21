@@ -7,7 +7,7 @@ import Visitor.Visitor;
 import Visitor.VisitorDisparoInfectado;
 import Visitor.VisitorInfectado;
 
-public class Infectado extends Personajes {
+public class Infectado extends Personaje {
 	protected Rectangle hitbox_zombie;
 
 	public Infectado(Punto p) {
@@ -23,12 +23,12 @@ public class Infectado extends Personajes {
 	}
 	
 	public void recibirDaño() {
-		if(vidas>5) {
-			this.vidas=vidas-5;
-			System.out.println("recibe daño el zombie, vida:"+vidas);
+		if(vida>5) {
+			this.vida=vida-5;
+			System.out.println("recibe daño el zombie, vida:"+vida);
 		}else {
-			this.vidas=vidas-5;
-			System.out.println("el zombie murio, vida:"+vidas);
+			this.vida=vida-5;
+			System.out.println("el zombie murio, vida:"+vida);
 			mapa.getGui().remove(this.getImagen());
 			mapa.getGui().repaint();
 			mapa.getListaInfectados().remove(this);

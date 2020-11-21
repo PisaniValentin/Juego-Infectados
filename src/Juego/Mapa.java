@@ -8,14 +8,14 @@ import javax.swing.JLabel;
 import Controladores.Controlador;
 import Controladores.ControladorInfectados;
 import Personajes.Infectado;
-import Personajes.Personajes;
+import Personajes.Personaje;
 import Proyectiles.Proyectil;
 
 public class Mapa {
 protected GUI gui;
 protected Juego juego;
-protected Personajes jugador;
-protected List<Personajes> lista_infectados;
+protected Personaje jugador;
+protected List<Personaje> lista_infectados;
 protected List<Proyectil> lista_proyectiles;
 protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 
@@ -23,7 +23,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 		this.juego = juego;
 		this.gui = gui;
 		jugador = null;
-		lista_infectados = new LinkedList<Personajes>();
+		lista_infectados = new LinkedList<Personaje>();
 		lista_proyectiles = new LinkedList<Proyectil>();
 	}
 	
@@ -31,7 +31,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 		return lista_proyectiles;
 	}
 	
-	public List<Personajes> getListaInfectados(){
+	public List<Personaje> getListaInfectados(){
 		return lista_infectados;
 	}
 	
@@ -43,7 +43,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 		return gui;
 	}
 	
-	public void agregarPersonaje(Personajes p) {
+	public void agregarPersonaje(Personaje p) {
 		int x = p.getPunto().getX();
 		int y = p.getPunto().getY();
 		int ancho = p.getAncho() ;
@@ -68,9 +68,8 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 	
 	public void agregarInfectadoTest() {
 		Controlador c_infectado = new ControladorInfectados();
-		
 		Punto punto = new Punto(80,60);
-		Personajes zombie = new Infectado(punto);
+		Personaje zombie = new Infectado(punto);
 		c_infectado.setPersonaje(zombie);
 		c_infectado.setGUI(gui);
 		

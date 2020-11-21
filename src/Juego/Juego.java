@@ -4,7 +4,7 @@ package Juego;
 import Controladores.Controlador;
 import Controladores.ControladorPersonaje;
 import Personajes.Jugador;
-import Personajes.Personajes;
+import Personajes.Personaje;
 
 public class Juego {
 protected GUI gui;
@@ -15,7 +15,7 @@ protected Mapa mapa;
 		gui.setVisible(true);
 		mapa = new Mapa(this,gui);
 		gui.setMapa(mapa);
-		Personajes personaje = new Jugador();
+		Personaje personaje = new Jugador();
 		
 		Punto punto = new Punto(113,445);
 		personaje.setPunto(punto);
@@ -26,7 +26,6 @@ protected Mapa mapa;
 		Controlador c_jugador = new ControladorPersonaje();
 		c_jugador.setPersonaje(personaje);
 		c_jugador.setGUI(gui);
-		
 		gui.addKeyListener((ControladorPersonaje) c_jugador);
 		
 		

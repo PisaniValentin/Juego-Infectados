@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import Visitor.Visitor;
 import Visitor.VisitorJugador;
 
-public class Jugador extends Personajes{
+public class Jugador extends Personaje{
 	
 	
 	protected VisitorJugador visitor;

@@ -6,13 +6,13 @@ import javax.swing.JPanel;
 import Juego.GUI;
 import Juego.Mapa;
 import Juego.Punto;
-import Personajes.Personajes;
+import Personajes.Personaje;
 import Proyectiles.Proyectil;
 
 public abstract class Controlador extends Thread {
 protected Proyectil proyectil;
 protected Punto punto;
-protected Personajes personaje;
+protected Personaje personaje;
 protected JLabel imagen;
 protected int ancho,largo;
 protected GUI gui;
@@ -41,14 +41,13 @@ public Proyectil getProyectil() {
 	return proyectil;
 }
 
-public Personajes getPersonaje() {
+public Personaje getPersonaje() {
 	return personaje;
 }
 
-public void setPersonaje(Personajes p) {
+public void setPersonaje(Personaje p) {
 	this.personaje = p;
 }
-
 
 public void setProyectil(Proyectil p) {
 	this.proyectil = p;

@@ -49,7 +49,6 @@ public abstract class GameObject {
 		imagen = new JLabel(icono_imagen);
 		ancho = icono_imagen.getIconWidth();
 		alto = icono_imagen.getIconHeight();
-		System.out.println("el ancho es:"+ancho+","+"el alto es:"+alto);
 	}
 	
 	public JLabel getImagen() {

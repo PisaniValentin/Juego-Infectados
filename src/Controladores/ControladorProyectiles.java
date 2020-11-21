@@ -3,7 +3,7 @@ package Controladores;
 import GameObjects.GameObject;
 import Juego.Punto;
 import Personajes.Infectado;
-import Personajes.Personajes;
+import Personajes.Personaje;
 import Visitor.Visitor;
 
 public class ControladorProyectiles extends Controlador {
