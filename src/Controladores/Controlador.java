@@ -29,6 +29,14 @@ public void setGUI(GUI gui) {
 	this.gui=gui;
 }
 
+public void setMapa(Mapa mapa) {
+	this.mapa = mapa;
+}
+
+public Mapa getMapa() {
+	return mapa;
+}
+
 
 public JLabel getImagen() {
 	return imagen ;

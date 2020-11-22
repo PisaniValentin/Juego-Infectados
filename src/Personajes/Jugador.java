@@ -21,6 +21,11 @@ public class Jugador extends Personaje{
 	@Override
 	public void atacar() {
 	}
+	
+	public void recibirDaño() {
+		vida = vida -10;
+		System.out.println("el jugador recibio daño"+vida);
+	}
 
 	@Override
 	public void interactuar() {
@@ -36,13 +41,12 @@ public class Jugador extends Personaje{
 
 	@Override
 	public void accept(Visitor visitor) {
-		
+		visitor.visit(this);
 	}
 
 	@Override
 	public Rectangle getHitbox() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
 
 

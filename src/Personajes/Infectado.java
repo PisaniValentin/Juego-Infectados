@@ -59,7 +59,6 @@ public class Infectado extends Personaje {
 	@Override
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
-		
 	}
 
 	

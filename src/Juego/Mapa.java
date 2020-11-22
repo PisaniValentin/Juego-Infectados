@@ -27,6 +27,14 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 		lista_proyectiles = new LinkedList<Proyectil>();
 	}
 	
+	public Personaje getJugador() {
+		return jugador;
+	}
+	
+	public void setJugador(Personaje jugador) {
+		this.jugador= jugador;
+	}
+	
 	public List<Proyectil> getListaDisparos(){
 		return lista_proyectiles;
 	}
@@ -72,7 +80,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3,spawn4;
 		Personaje zombie = new Infectado(punto);
 		c_infectado.setPersonaje(zombie);
 		c_infectado.setGUI(gui);
-		
+		c_infectado.setMapa(this);
 		zombie.setMapa(this);
 		zombie.getImagen().setLocation(80,60);
 		zombie.setPunto(punto);

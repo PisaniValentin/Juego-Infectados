@@ -1,6 +1,7 @@
 package Controladores;
 
 import Juego.Punto;
+import Visitor.Visitor;
 
 public class ControladorInfectados extends Controlador {
 
@@ -9,12 +10,12 @@ public class ControladorInfectados extends Controlador {
 	}
 	@Override
 	public void mover() {
-	
+		Visitor visitor = personaje.getVisitor();
 		Punto pos_zombie = personaje.getPunto();
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
-		int contador = 0;
-		while(y<gui.getContentPane().getWidth()) {
+		boolean golpeo = false;
+		while(y<gui.getContentPane().getWidth()+300) {
 			try {
 				this.sleep(20);
 			} catch (InterruptedException e) {
@@ -25,7 +26,10 @@ public class ControladorInfectados extends Controlador {
 			personaje.getPunto().setY(y);
 			personaje.getImagen().setLocation(x, y);
 			gui.repaint();
-			contador++;
+			if(personaje.getHitbox().intersects(mapa.getJugador().getHitbox()) || y>mapa.getJugador().getPunto().getY() && !golpeo) {
+				mapa.getJugador().accept(visitor);
+				golpeo=true;
+			}
 		}
 		
 	}

@@ -2,6 +2,7 @@ package Visitor;
 
 import GameObjects.GameObject;
 import Personajes.Infectado;
+import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
@@ -16,5 +17,7 @@ protected GameObject obj;
 	public abstract void visit(ProyectilJugador d);
 	
 	public abstract void visit(ProyectilInfectado d);
+	
+	public abstract void visit(Jugador d);
 
 }
