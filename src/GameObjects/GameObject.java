@@ -1,10 +1,12 @@
 package GameObjects;
 
+import java.awt.Image;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Controladores.Controlador;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
@@ -19,10 +21,11 @@ public abstract class GameObject {
 
 	public abstract Rectangle getHitbox();
 	public abstract void accept(Visitor visitor);
+	public abstract Controlador getControlador();
 	
 	public Visitor getVisitor() {
 		return visitor ;
-	}
+	}	
 	
 	public void setMapa(Mapa mapa) {
 		this.mapa = mapa ;
@@ -54,8 +57,10 @@ public abstract class GameObject {
 	public JLabel getImagen() {
 		return imagen ;
 	}
-	public void setImagen(JLabel imagen) {
-		this.imagen = imagen ;
+	public void setImagen(String ruta) {
+		ImageIcon dibujo = new ImageIcon(this.getClass().getClassLoader().getResource(ruta));
+		imagen.setIcon(dibujo);
+		imagen.setSize(ancho+2,alto+2);
 	}
 
 }

@@ -1,37 +1,48 @@
 package Controladores;
 
-import Juego.Punto;
-import Visitor.Visitor;
 
-public class ControladorInfectados extends Controlador {
+import java.util.List;
+
+import GameObjects.GameObject;
+import Juego.Punto;
+import Personajes.Infectado;
+import Visitor.Visitor;
+public class ControladorInfectados extends Controlador{
+protected boolean puedo = true;
+protected List<GameObject> lista;
+protected Temporizador temporizador;
+protected int velocidad;
 
 	public void run() {
-		mover();
-	}
-	@Override
-	public void mover() {
-		Visitor visitor = personaje.getVisitor();
+		Visitor visitor = this.getPersonaje().getVisitor();
 		Punto pos_zombie = personaje.getPunto();
+		Punto punto_inicial = pos_zombie;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while(y<gui.getContentPane().getWidth()+300) {
+		//velocidad=1;
+		while( personaje != null && y<gui.getContentPane().getWidth()+300 ) {
 			try {
 				this.sleep(20);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			y = y+1;
+			y = y+personaje.getVelocidad();
 			personaje.getPunto().setY(y);
 			personaje.getImagen().setLocation(x, y);
 			gui.repaint();
-			if(personaje.getHitbox().intersects(mapa.getJugador().getHitbox()) || y>mapa.getJugador().getPunto().getY() && !golpeo) {
+			if((personaje.getHitbox().intersects(mapa.getJugador().getHitbox()) && !golpeo) ) {
 				mapa.getJugador().accept(visitor);
-				golpeo=true;
+				//golpeo=true;
 			}
 		}
-		
+	}
+	
+	public void setLista(List<GameObject> list) {
+		this.lista = list;
+	}
+	
+	public void congelar(){
 	}
 
 	@Override
@@ -39,12 +50,24 @@ public class ControladorInfectados extends Controlador {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public Punto getPunto() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ControladorInfectados getControlador() {
+		// TODO Auto-generated method stub
+		return (ControladorInfectados) personaje.getControlador();
+	}
+
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 

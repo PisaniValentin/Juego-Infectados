@@ -31,6 +31,10 @@ protected GUI frame;
 	}
 	public abstract Rectangle getHitbox();
 	
+	public void remove() {
+		mapa.getGui().remove(this.getImagen());
+	}
+	
 	public void setFrame(GUI gui) {
 		this.frame = gui;
 	}

@@ -21,5 +21,12 @@ public abstract class Personaje extends GameObject{
 	public int getRango() {
 		return rango;
 	}
+	public int getVida() {
+		return vida;
+	}
+	public abstract void setVelocidad(int i);
+		
+	public abstract int getVelocidad();
+	
 
 }

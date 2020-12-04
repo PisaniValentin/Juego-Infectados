@@ -82,5 +82,19 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 		
 	}
 
+
+	@Override
+	public void congelar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

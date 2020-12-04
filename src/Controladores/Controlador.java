@@ -1,8 +1,11 @@
 package Controladores;
 
+import java.util.List;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import GameObjects.GameObject;
 import Juego.GUI;
 import Juego.Mapa;
 import Juego.Punto;
@@ -17,6 +20,7 @@ protected JLabel imagen;
 protected int ancho,largo;
 protected GUI gui;
 protected Mapa mapa;
+
 
 public abstract void mover();
 public abstract void setPunto(Punto punto);
@@ -36,7 +40,6 @@ public void setMapa(Mapa mapa) {
 public Mapa getMapa() {
 	return mapa;
 }
-
 
 public JLabel getImagen() {
 	return imagen ;
@@ -61,8 +64,11 @@ public void setProyectil(Proyectil p) {
 	this.proyectil = p;
 }
 
+public abstract  void congelar();
 
-
+public List<GameObject> getLista() {
+	return mapa.getListaObjectos();
+}
 
 
 

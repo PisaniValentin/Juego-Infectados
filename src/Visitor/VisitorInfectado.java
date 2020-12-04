@@ -1,6 +1,7 @@
 package Visitor;
 
 import GameObjects.GameObject;
+import ObjetosTemporales.Congelacion;
 import Personajes.Infectado;
 import Personajes.Jugador;
 import Personajes.Personaje;
@@ -16,14 +17,11 @@ public class VisitorInfectado extends Visitor {
 
 	@Override
 	public void visit(Infectado e) {
-		System.out.println("entra a22");
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void visit(ProyectilJugador d) {
-		System.out.println("entra aca visitorInfectado");
 		// TODO Auto-generated method stub
 		
 	}
@@ -35,6 +33,12 @@ public class VisitorInfectado extends Visitor {
 	}
 	public void visit(Jugador jugador) {
 		jugador.recibirDaño();
+	}
+
+	@Override
+	public void visit(Congelacion c) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

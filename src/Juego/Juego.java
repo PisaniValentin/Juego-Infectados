@@ -27,7 +27,7 @@ protected Mapa mapa;
 		c_jugador.setPersonaje(personaje);
 		c_jugador.setGUI(gui);
 		gui.addKeyListener((ControladorPersonaje) c_jugador);
-		
+		mapa.agregarHielo();
 		
 		}
 }

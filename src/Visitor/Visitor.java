@@ -1,6 +1,7 @@
 package Visitor;
 
 import GameObjects.GameObject;
+import ObjetosTemporales.Congelacion;
 import Personajes.Infectado;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
@@ -19,5 +20,7 @@ protected GameObject obj;
 	public abstract void visit(ProyectilInfectado d);
 	
 	public abstract void visit(Jugador d);
+	
+	public abstract void visit(Congelacion c);
 
 }

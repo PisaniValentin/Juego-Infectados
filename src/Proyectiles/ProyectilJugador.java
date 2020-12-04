@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JLabel;
 
+import Controladores.Controlador;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
@@ -11,12 +12,12 @@ import Visitor.Visitor;
 import Visitor.VisitorDisparoPersonaje;
 
 public class ProyectilJugador extends Proyectil{
-protected Mapa mapa;
+//protected Mapa mapa;
 protected Rectangle hitbox_proyectil;
 
 	public ProyectilJugador(int rango,int daño,Punto punto) {
 		super(rango,daño,punto);
-		visitor = new VisitorDisparoPersonaje(this);
+		visitor = new VisitorDisparoPersonaje(this,this.getMapa());
 		hitbox_proyectil = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),ancho,alto);
 	}
 	
@@ -31,6 +32,16 @@ protected Rectangle hitbox_proyectil;
 	
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
+	}
+	
+//	public void remove() {
+//		mapa.getGui().remove(this.getImagen());
+//	}
+
+	@Override
+	public Controlador getControlador() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 //	public boolean hayColision(GameObject p) {
