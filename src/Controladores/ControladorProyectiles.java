@@ -34,9 +34,10 @@ public class ControladorProyectiles extends Controlador {
 				gui.repaint();
 				contador++;
 				for(GameObject objeto : lista_aux) {
-					if(!personaje.getMapa().getListaObjectos().isEmpty()) {
+					if(!personaje.getMapa().getListaObjectos().isEmpty() ) {
 						if(proyectil.getHitbox().intersects(objeto.getHitbox()) && objeto != proyectil) {
 							objeto.accept(visitor);
+							//System.out.println("pegue");
 							proyectil_landed = true;
 							gui.repaint();
 						}
@@ -68,6 +69,12 @@ public class ControladorProyectiles extends Controlador {
 
 	@Override
 	public void congelar() {
+		
+	}
+
+	@Override
+	public void setLista(List<GameObject> listaObjectos) {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -11,16 +11,13 @@ public class ControladorInfectados extends Controlador{
 protected boolean puedo = true;
 protected List<GameObject> lista;
 protected Temporizador temporizador;
-protected int velocidad;
 
 	public void run() {
 		Visitor visitor = this.getPersonaje().getVisitor();
 		Punto pos_zombie = personaje.getPunto();
-		Punto punto_inicial = pos_zombie;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		//velocidad=1;
 		while( personaje != null && y<gui.getContentPane().getWidth()+300 ) {
 			try {
 				this.sleep(20);
@@ -56,9 +53,8 @@ protected int velocidad;
 		return null;
 	}
 	
-	public ControladorInfectados getControlador() {
-		// TODO Auto-generated method stub
-		return (ControladorInfectados) personaje.getControlador();
+	public Controlador getControlador() {
+		return personaje.getControlador();
 	}
 
 	@Override

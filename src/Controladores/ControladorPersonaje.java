@@ -2,9 +2,11 @@ package Controladores;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 
 import javax.swing.JLabel;
 
+import GameObjects.GameObject;
 import Juego.Punto;
 import Proyectiles.Proyectil;
 import Proyectiles.ProyectilJugador;
@@ -67,7 +69,6 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 				gui.repaint();
 				c_disparo.setProyectil(disparo);
 				c_disparo.start();
-				personaje.getMapa().agregarDisparo(disparo);
 				break;
 			}
 		
@@ -92,6 +93,12 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 
 	@Override
 	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLista(List<GameObject> listaObjectos) {
 		// TODO Auto-generated method stub
 		
 	}

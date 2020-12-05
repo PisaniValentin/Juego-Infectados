@@ -69,6 +69,7 @@ public abstract  void congelar();
 public List<GameObject> getLista() {
 	return mapa.getListaObjectos();
 }
+public abstract void setLista(List<GameObject> listaObjectos);
 
 
 

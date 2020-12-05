@@ -18,6 +18,7 @@ protected Mapa map;
 
 	@Override
 	public void visit(Infectado e) {
+		System.out.println("pegue2");
 		e.recibirDaño();
 	}
 
@@ -25,6 +26,7 @@ protected Mapa map;
 	public void visit(ProyectilJugador d) {
 		// TODO Auto-generated method stub
 		//System.out.println("entre aca1");
+		System.out.println("toca con disparo");
 	}
 
 	@Override

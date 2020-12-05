@@ -11,7 +11,7 @@ import Visitor.VisitorInfectado;
 
 public class Infectado extends Personaje {
 	protected Rectangle hitbox_zombie;
-	protected ControladorInfectados controlador;
+	protected Controlador controlador;
 	
 	public Infectado(Punto p,Mapa map) {
 		super(100,10,10);
@@ -32,7 +32,7 @@ public class Infectado extends Personaje {
 		return new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
 	
-	public ControladorInfectados getControlador() {
+	public Controlador getControlador() {
 		return controlador;
 	}
 	
