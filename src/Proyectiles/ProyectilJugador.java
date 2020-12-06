@@ -17,7 +17,7 @@ protected Rectangle hitbox_proyectil;
 
 	public ProyectilJugador(int rango,int daño,Punto punto) {
 		super(rango,daño,punto);
-		visitor = new VisitorDisparoPersonaje(this,this.getMapa());
+		visitor = new VisitorDisparoPersonaje(this,daño);
 		hitbox_proyectil = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),ancho,alto);
 	}
 	

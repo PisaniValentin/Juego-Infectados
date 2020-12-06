@@ -19,7 +19,7 @@ public class Infectado extends Personaje {
 		this.cambiarImagen("Imagenes/zombie.gif");
 		mapa = map;
 		velocidad=1;
-		visitor = new VisitorInfectado(this);
+		visitor = new VisitorInfectado(this,15);
 		controlador = new ControladorInfectados();
 		controlador.setPersonaje(this);
 		controlador.setMapa(map);
@@ -36,12 +36,12 @@ public class Infectado extends Personaje {
 		return controlador;
 	}
 	
-	public void recibirDaño() {
+	public void recibirDaño(int daño) {
 		if(vida>5) {
-			this.vida=vida-5;
+			this.vida=vida-daño;
 			System.out.println("recibe daño el zombie, vida:"+vida);
 		}else {
-			this.vida=vida-5;
+			this.vida=vida-daño;
 			System.out.println("el zombie murio, vida:"+vida);
 			mapa.getGui().remove(this.getImagen());
 			mapa.getGui().repaint();
@@ -52,8 +52,7 @@ public class Infectado extends Personaje {
 	}
 	
 	public void congelar() {
-			controlador.congelar();
-		
+		controlador.congelar();
 	}
 	
 	@Override

@@ -9,24 +9,26 @@ import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
 public class VisitorDisparoPersonaje extends Visitor{
-protected Mapa map;
-	public VisitorDisparoPersonaje(GameObject o,Mapa map) {
+protected int daño;
+	public VisitorDisparoPersonaje(GameObject o) {
 		super(o);
-		this.map = map;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public VisitorDisparoPersonaje(GameObject o,int daño) {
+		super(o);
+		this.daño = daño;
 	}
 
 	@Override
 	public void visit(Infectado e) {
-		System.out.println("pegue2");
-		e.recibirDaño();
+		e.recibirDaño(daño);
 	}
 
 	@Override
 	public void visit(ProyectilJugador d) {
 		// TODO Auto-generated method stub
 		//System.out.println("entre aca1");
-		System.out.println("toca con disparo");
 	}
 
 	@Override
@@ -44,8 +46,8 @@ protected Mapa map;
 
 	@Override
 	public void visit(Congelacion c) {
-		System.out.println("entra visitor");
 		c.congelar();
 	}
+
 
 }

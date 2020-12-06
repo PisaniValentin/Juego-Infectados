@@ -18,7 +18,8 @@ public class Jugador extends Personaje{
 		visitor = new VisitorJugador(this);
 		controlador = new ControladorPersonaje();
 		controlador.setPersonaje(this);
-		rango=300;
+		arma.setRango(300);
+		arma.setDaño(10);
 		cambiarImagen("Imagenes/jugador.png");
 		velocidad=6;
 	}
@@ -32,8 +33,8 @@ public class Jugador extends Personaje{
 		return controlador;
 	}
 
-	public void recibirDaño() {
-		vida = vida -10;
+	public void recibirDaño(int daño) {
+		vida = vida - daño;
 		System.out.println("el jugador recibio daño"+vida);
 	}
 

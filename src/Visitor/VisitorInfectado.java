@@ -9,10 +9,15 @@ import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
 public class VisitorInfectado extends Visitor {
-
-	public VisitorInfectado(GameObject o) {
+protected int daño;
+	public VisitorInfectado(GameObject o,Personaje personaje) {
 		super(o);
+	}
+
+	public VisitorInfectado(GameObject o, int daño) {
 		// TODO Auto-generated constructor stub
+		super(o);
+		this.daño = daño;
 	}
 
 	@Override
@@ -32,7 +37,7 @@ public class VisitorInfectado extends Visitor {
 		
 	}
 	public void visit(Jugador jugador) {
-		jugador.recibirDaño();
+		jugador.recibirDaño(daño);
 	}
 
 	@Override

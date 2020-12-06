@@ -37,7 +37,6 @@ public class ControladorProyectiles extends Controlador {
 					if(!personaje.getMapa().getListaObjectos().isEmpty() ) {
 						if(proyectil.getHitbox().intersects(objeto.getHitbox()) && objeto != proyectil) {
 							objeto.accept(visitor);
-							//System.out.println("pegue");
 							proyectil_landed = true;
 							gui.repaint();
 						}

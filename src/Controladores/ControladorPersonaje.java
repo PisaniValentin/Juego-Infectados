@@ -41,6 +41,9 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 	public void keyPressed(KeyEvent tecla) {
 		
 		Punto pos = personaje.getPunto();
+		int rango = personaje.getRango();
+		int daño = personaje.getDaño();
+		
 		int velocidad = 3;
 		switch(tecla.getKeyCode()) {
 			case KeyEvent.VK_LEFT: {
@@ -60,7 +63,7 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 				Punto pos_disparo = new Punto(pos.getX()+10,pos.getY()-20);
 				int x = pos_disparo.getX();
 				int y = pos_disparo.getY();
-				Proyectil disparo = new ProyectilJugador(10,10,pos_disparo);
+				Proyectil disparo = new ProyectilJugador(rango,daño,pos_disparo);
 				JLabel imagen = disparo.getImagen();
 				imagen.setLocation(x,y);
 				imagen.setSize(15,15);
