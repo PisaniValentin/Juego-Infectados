@@ -2,25 +2,31 @@ package Controladores;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import javax.swing.JLabel;
-
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Personajes.Infectado;
+import Visitor.Visitor;
 
 public class Temporizador extends Thread {
 protected boolean termino;
 protected Mapa mapa;
-	public Temporizador(Mapa mapa) {
+protected GameObject objeto;
+
+	public Temporizador(GameObject objeto,Mapa mapa) {
+		this.objeto=objeto;
 		termino = false;
 		this.mapa = mapa;
 	}
 	
-	public void run() {
-		congelar();
+	public Temporizador() {
+		termino = false;
 	}
 	
+	public void run() {
+		activarEfectoTemporal();
+	}
+		
 	public void iniciarTemporizador() {
 		try {
 			this.sleep(3000);
@@ -35,36 +41,29 @@ protected Mapa mapa;
 		return termino;
 	}
 	
-	public void congelar() {
+	public void activarEfectoTemporal() {
 		boolean recorro = true;
-		JLabel imagen = new JLabel();
+		Visitor visitor = objeto.getVisitor();
 		List<GameObject> lista_aux = new LinkedList<GameObject>();
 		for (GameObject objeto : mapa.getListaObjectos()) {
 			lista_aux.add(objeto);
 		}
 		
 		for (GameObject objeto : lista_aux) {
-			if(objeto instanceof Infectado) {
-				Infectado zombie = (Infectado) objeto;
-				zombie.setVelocidad(0);
-				zombie.setImagen("Imagenes/congelado.png");
-				mapa.getGui().repaint();
-			}
+			objeto.accept(visitor);
 		}
+		
 		this.iniciarTemporizador();
 		while(recorro) {
 			if(this.getTiempo()) {
 				recorro=false;
 			}
 		}
+		
 		for (GameObject objeto : lista_aux) {
-			if(objeto instanceof Infectado) {
-				Infectado zombie = (Infectado) objeto;
-				zombie.setVelocidad(1);
-				zombie.setImagen("Imagenes/zombie.gif");
-				mapa.getGui().repaint();
-			}
+			objeto.accept(visitor);
 		}
 	}
+	
 	
 }

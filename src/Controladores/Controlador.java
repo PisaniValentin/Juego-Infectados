@@ -20,11 +20,16 @@ protected JLabel imagen;
 protected int ancho,largo;
 protected GUI gui;
 protected Mapa mapa;
-
+protected GameObject objeto;
 
 public abstract void mover();
 public abstract void setPunto(Punto punto);
 public abstract Punto getPunto();
+
+public Controlador(GameObject objeto,Mapa map) {
+	this.objeto = objeto;
+	this.mapa = map;
+}
 
 public GUI getGUI() {
 	return gui;

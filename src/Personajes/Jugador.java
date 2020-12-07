@@ -9,23 +9,31 @@ import Visitor.Visitor;
 import Visitor.VisitorJugador;
 
 public class Jugador extends Personaje{
-	
-	
-	protected VisitorJugador visitor;
-	protected ControladorPersonaje controlador;
+protected VisitorJugador visitor;
+protected ControladorPersonaje controlador;
+protected boolean buff;
+
 	public Jugador() {
-		super(100,0,4);
+		super(0,8);
 		visitor = new VisitorJugador(this);
-		controlador = new ControladorPersonaje();
+		controlador = new ControladorPersonaje(this,mapa);
 		controlador.setPersonaje(this);
 		arma.setRango(300);
-		arma.setDaño(10);
+		arma.setDaño(20);
 		cambiarImagen("Imagenes/jugador.png");
 		velocidad=6;
+		buff=false;
 	}
 	
 	@Override
 	public void atacar() {
+	}
+	
+	public boolean isBuffed() {
+		return buff;
+	}
+	public void setBuff(boolean buff) {
+		this.buff = buff;
 	}
 	
 
@@ -34,8 +42,8 @@ public class Jugador extends Personaje{
 	}
 
 	public void recibirDaño(int daño) {
-		vida = vida - daño;
-		System.out.println("el jugador recibio daño"+vida);
+		cargaViral = cargaViral - daño;
+		System.out.println("el jugador recibio daño"+cargaViral);
 	}
 
 	@Override

@@ -8,11 +8,10 @@ import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
-public class VisitorJugador extends Visitor {
+public class VisitorEfectoDaño extends Visitor{
 
-	public VisitorJugador(GameObject o) {
+	public VisitorEfectoDaño(GameObject o) {
 		super(o);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -23,7 +22,8 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(ProyectilJugador d) {
-		//no debe hacer nada
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -34,8 +34,13 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
-		
+		if(!d.isBuffed()) {
+			d.getArma().setDaño(d.getDaño()*2);
+			d.setBuff(true);
+		}else {
+			d.getArma().setDaño(d.getDaño()/2);
+			d.setBuff(false);
+		}
 	}
 
 	@Override
@@ -46,11 +51,8 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
-
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
+
 }

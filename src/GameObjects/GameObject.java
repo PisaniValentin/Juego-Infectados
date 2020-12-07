@@ -22,6 +22,7 @@ public abstract class GameObject {
 	public abstract Rectangle getHitbox();
 	public abstract void accept(Visitor visitor);
 	public abstract Controlador getControlador();
+	public abstract void mover();
 	
 	public Visitor getVisitor() {
 		return visitor ;

@@ -1,11 +1,15 @@
 package Personajes;
 
 import java.awt.Rectangle;
+import java.util.Random;
 
 import Controladores.Controlador;
 import Controladores.ControladorInfectados;
+import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
+import ObjetosTemporales.Congelacion;
+import ObjetosTemporales.DañoDoble;
 import Visitor.Visitor;
 import Visitor.VisitorInfectado;
 
@@ -14,13 +18,13 @@ public class Infectado extends Personaje {
 	protected Controlador controlador;
 	
 	public Infectado(Punto p,Mapa map) {
-		super(100,10,10);
+		super(100,10);
 		this.setPunto(p);
 		this.cambiarImagen("Imagenes/zombie.gif");
 		mapa = map;
-		velocidad=1;
+		velocidad=2;
 		visitor = new VisitorInfectado(this,15);
-		controlador = new ControladorInfectados();
+		controlador = new ControladorInfectados(this,map);
 		controlador.setPersonaje(this);
 		controlador.setMapa(map);
 		controlador.setGUI(mapa.getGui());
@@ -32,22 +36,38 @@ public class Infectado extends Personaje {
 		return new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
 	
+	public void descongelar() {
+		velocidad=2;
+		this.setImagen("Imagenes/zombie.gif");
+	}
+	
 	public Controlador getControlador() {
 		return controlador;
 	}
 	
 	public void recibirDaño(int daño) {
-		if(vida>5) {
-			this.vida=vida-daño;
-			System.out.println("recibe daño el zombie, vida:"+vida);
+		if(cargaViral>5) {
+			this.cargaViral=cargaViral-daño;
+			System.out.println("recibe daño el zombie, vida:"+cargaViral);
 		}else {
-			this.vida=vida-daño;
-			System.out.println("el zombie murio, vida:"+vida);
+			Random r = new Random();
+			float chance = r.nextFloat();
+			this.cargaViral=cargaViral-daño;
+			System.out.println("el zombie murio, vida:"+cargaViral);
 			mapa.getGui().remove(this.getImagen());
 			mapa.getGui().repaint();
 			mapa.getListaObjectos().remove(this);
 			controlador.setPersonaje(null);
-			//controlador.stop();
+			if(chance<0.90f) {
+				GameObject hielo = new Congelacion(punto,mapa);
+				hielo.getImagen().setLocation(this.punto.getX(),this.punto.getY());
+				hielo.getImagen().setSize(30, 30);
+				mapa.getListaObjectos().add(hielo);
+				mapa.getGui().add(hielo.getImagen());
+				mapa.getGui().repaint();
+				hielo.mover();
+			}
+			
 		}
 	}
 	
@@ -84,6 +104,10 @@ public class Infectado extends Personaje {
 	}
 	public int getVelocidad() {
 		return velocidad;
+	}
+
+	public boolean estaQuieto() {
+		return velocidad==0;
 	}
 
 	

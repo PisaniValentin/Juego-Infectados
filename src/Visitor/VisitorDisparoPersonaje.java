@@ -1,8 +1,8 @@
 package Visitor;
 
 import GameObjects.GameObject;
-import Juego.Mapa;
 import ObjetosTemporales.Congelacion;
+import ObjetosTemporales.DañoDoble;
 import Personajes.Infectado;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
@@ -48,6 +48,12 @@ protected int daño;
 	public void visit(Congelacion c) {
 		c.congelar();
 	}
+
+	@Override
+	public void visit(DañoDoble dañoDoble) {
+		dañoDoble.buff();
+	}
+	
 
 
 }

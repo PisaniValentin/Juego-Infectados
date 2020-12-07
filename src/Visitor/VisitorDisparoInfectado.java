@@ -2,6 +2,7 @@ package Visitor;
 
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
+import ObjetosTemporales.DañoDoble;
 import Personajes.Infectado;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
@@ -39,6 +40,12 @@ public class VisitorDisparoInfectado extends Visitor {
 
 	@Override
 	public void visit(Congelacion c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visit(DañoDoble dañoDoble) {
 		// TODO Auto-generated method stub
 		
 	}

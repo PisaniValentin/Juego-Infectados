@@ -8,22 +8,29 @@ import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
-public class VisitorJugador extends Visitor {
+public class VisitorEfectoCongelar extends Visitor {
 
-	public VisitorJugador(GameObject o) {
+	public VisitorEfectoCongelar(GameObject o) {
 		super(o);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void visit(Infectado e) {
-		// TODO Auto-generated method stub
+		if(!e.estaQuieto()) {
+			System.out.println("entre visitor congelacion");
+			e.setVelocidad(0);
+			e.setImagen("Imagenes/congelado.png");
+		}else {
+			e.descongelar();
+		}
 		
 	}
 
 	@Override
 	public void visit(ProyectilJugador d) {
-		//no debe hacer nada
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -34,7 +41,6 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -46,11 +52,8 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
-
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
+
 }

@@ -4,12 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 import GameObjects.GameObject;
+import Juego.Mapa;
 import Juego.Punto;
 import Personajes.Infectado;
 import Personajes.Personaje;
 import Visitor.Visitor;
 
 public class ControladorProyectiles extends Controlador {
+protected int rango;
+	public ControladorProyectiles(GameObject objeto, Mapa map,int rango) {
+		super(objeto, map);
+		// TODO Auto-generated constructor stub
+		this.rango = rango;
+	}
 
 	public void run() {
 		mover();
@@ -20,12 +27,12 @@ public class ControladorProyectiles extends Controlador {
 		Visitor visitor= proyectil.getVisitor();
 		int contador=0;
 		int posY = proyectil.getPunto().getY();
-		List<GameObject> lista = personaje.getMapa().getListaObjectos();
+		List<GameObject> lista = mapa.getListaObjectos();
 		List<GameObject> lista_aux = new LinkedList<GameObject>();
 		for(GameObject objeto : lista) {
 			lista_aux.add(objeto);
 		}
-		while(!proyectil_landed && contador<=personaje.getRango()) {
+		while(!proyectil_landed && contador<=rango) {
 			try {
 				ControladorProyectiles.sleep(50);
 				posY = posY - 10;
@@ -34,7 +41,7 @@ public class ControladorProyectiles extends Controlador {
 				gui.repaint();
 				contador++;
 				for(GameObject objeto : lista_aux) {
-					if(!personaje.getMapa().getListaObjectos().isEmpty() ) {
+					if(!mapa.getListaObjectos().isEmpty() ) {
 						if(proyectil.getHitbox().intersects(objeto.getHitbox()) && objeto != proyectil) {
 							objeto.accept(visitor);
 							proyectil_landed = true;
@@ -47,7 +54,7 @@ public class ControladorProyectiles extends Controlador {
 			}
 		}
 		gui.remove(proyectil.getImagen());
-		personaje.getMapa().getListaObjectos().remove(proyectil);
+		mapa.getListaObjectos().remove(proyectil);
 		proyectil = null;
 	}
 

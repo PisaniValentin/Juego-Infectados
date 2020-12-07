@@ -2,16 +2,16 @@ package Personajes;
 
 import GameObjects.GameObject;
 public abstract class Personaje extends GameObject{
-	protected int ancho, alto,rango;
-	protected int vida,cargaViral,velocidad;
+	protected int ancho, alto,rango,velocidad,cargaViral;
 	protected Arma arma;
 	
 	public abstract void atacar();
 	public abstract void interactuar();
 	public abstract void mover();
+	public abstract void setVelocidad(int i);
+	public abstract int getVelocidad();
 	
-	protected Personaje(int vidas ,int cargaViral,int velocidad) {
-		this.vida = vidas;
+	protected Personaje(int cargaViral,int velocidad) {
 		this.cargaViral = cargaViral;
 		this.velocidad = velocidad;
 		imagen=null;
@@ -35,12 +35,10 @@ public abstract class Personaje extends GameObject{
 		this.arma=arma;
 	}
 	
-	public int getVida() {
-		return vida;
+	public int getCargaViral() {
+		return cargaViral;
 	}
-	public abstract void setVelocidad(int i);
-		
-	public abstract int getVelocidad();
+
 	
 
 }

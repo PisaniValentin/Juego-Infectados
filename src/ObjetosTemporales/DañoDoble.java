@@ -1,48 +1,42 @@
 package ObjetosTemporales;
 
 import java.awt.Rectangle;
-import java.util.LinkedList;
-import java.util.List;
 
 import Controladores.Controlador;
-import Controladores.ControladorInfectados;
-import Controladores.ControladorPremios;
 import Controladores.Temporizador;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
-import Personajes.Infectado;
 import Visitor.Visitor;
-import Visitor.VisitorEfectoCongelar;
+import Visitor.VisitorEfectoDaño;
 
-public class Congelacion extends GameObject{
-protected Rectangle hitbox;
-protected Controlador controlador;
-// SI SIGO DISPARANDO SE CONGELA POCO TIEMPO Y DESPUES SE VUELVE A CONGELAR
+public class DañoDoble extends GameObject{
 
+	protected Rectangle hitbox;
 
-	public Congelacion(Punto p,Mapa map) {
+	public DañoDoble(Punto p,Mapa map) {
 		this.cambiarImagen("Imagenes/hielo.png");
 		hitbox = new Rectangle();
 		punto = p;
 		mapa = map;
-		visitor = new VisitorEfectoCongelar(this);
-		controlador = new ControladorPremios(this,mapa);
+		visitor = new VisitorEfectoDaño(this);
 	}
 	public Visitor getVisitor() {
 		return visitor;
-	}
-	
-	public void mover() {
-		controlador.start();
 	}
 	
 	@Override
 	public Rectangle getHitbox() {
 		return new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
 	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+		
+	}
 	
-	public void congelar() {
+	public void buff() {
 		Temporizador tempo = new Temporizador(this,mapa);
 		tempo.start();
 		mapa.getListaObjectos().remove(this);
@@ -50,13 +44,14 @@ protected Controlador controlador;
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
-	}
-	
-	@Override
 	public Controlador getControlador() {
+		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

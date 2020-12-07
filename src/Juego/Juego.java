@@ -23,7 +23,7 @@ protected Mapa mapa;
 		mapa.agregarPersonaje(personaje);
 		mapa.agregarInfectadoTest();
 		mapa.setJugador(personaje);
-		Controlador c_jugador = new ControladorPersonaje();
+		Controlador c_jugador = new ControladorPersonaje(personaje,mapa);
 		c_jugador.setPersonaje(personaje);
 		c_jugador.setGUI(gui);
 		gui.addKeyListener((ControladorPersonaje) c_jugador);

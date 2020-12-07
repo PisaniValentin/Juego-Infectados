@@ -7,11 +7,17 @@ import java.util.List;
 import javax.swing.JLabel;
 
 import GameObjects.GameObject;
+import Juego.Mapa;
 import Juego.Punto;
 import Proyectiles.Proyectil;
 import Proyectiles.ProyectilJugador;
 
 public class ControladorPersonaje extends Controlador implements KeyListener{
+
+	public ControladorPersonaje(GameObject objeto, Mapa map) {
+		super(objeto, map);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public void mover() {
@@ -57,13 +63,14 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 				break;
 			}
 			case KeyEvent.VK_UP: {
-				Controlador c_disparo = new ControladorProyectiles();
-				c_disparo.setPersonaje(personaje);
+				Controlador c_disparo = new ControladorProyectiles(personaje,personaje.getMapa(),personaje.getRango());
+			//	c_disparo.setPersonaje(personaje);
 				c_disparo.setGUI(personaje.getMapa().getGui());
 				Punto pos_disparo = new Punto(pos.getX()+10,pos.getY()-20);
 				int x = pos_disparo.getX();
 				int y = pos_disparo.getY();
 				Proyectil disparo = new ProyectilJugador(rango,daño,pos_disparo);
+		//		disparo.setMapa(personaje.getMapa());
 				JLabel imagen = disparo.getImagen();
 				imagen.setLocation(x,y);
 				imagen.setSize(15,15);

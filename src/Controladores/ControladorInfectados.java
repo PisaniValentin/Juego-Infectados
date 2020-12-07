@@ -4,10 +4,14 @@ package Controladores;
 import java.util.List;
 
 import GameObjects.GameObject;
+import Juego.Mapa;
 import Juego.Punto;
-import Personajes.Infectado;
 import Visitor.Visitor;
 public class ControladorInfectados extends Controlador{
+public ControladorInfectados(GameObject objeto, Mapa map) {
+		super(objeto, map);
+	}
+
 protected boolean puedo = true;
 protected List<GameObject> lista;
 protected Temporizador temporizador;
@@ -18,7 +22,7 @@ protected Temporizador temporizador;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while( personaje != null && y<gui.getContentPane().getWidth()+300 ) {
+		while( personaje.getCargaViral()>=0 && y<gui.getContentPane().getWidth()+300 ) {
 			try {
 				this.sleep(20);
 			} catch (InterruptedException e) {

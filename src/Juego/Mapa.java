@@ -9,7 +9,9 @@ import Controladores.Controlador;
 import Controladores.ControladorInfectados;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
+import ObjetosTemporales.DañoDoble;
 import Personajes.Infectado;
+import Personajes.InfectadoBeta;
 import Personajes.Personaje;
 import Proyectiles.Proyectil;
 
@@ -64,6 +66,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3;
 		jugador= p;
 		gui.add(jugador.getImagen());
 		gui.repaint();
+		lista_objects.add(p);
 		
 	}
 	
@@ -76,36 +79,37 @@ protected Punto spawn0,spawn1,spawn2,spawn3;
 	}
 	
 	public void agregarHielo() {
-		int x = spawn0.getX();
-		int y = spawn0.getY();
-		Punto punto = new Punto(60,379);
-		Congelacion hielo = new Congelacion(punto,this);
-		hielo.getImagen().setLocation(60,379);
-		hielo.getImagen().setSize(30, 30);
-		lista_objects.add(hielo);
-		gui.add(hielo.getImagen());
-		gui.repaint();
+	//	int x = spawn0.getX();
+	//	int y = spawn0.getY();
+	//	Punto punto = new Punto(60,379);
+	//	Congelacion hielo = new Congelacion(punto,this);
+	//	DañoDoble hielo = new DañoDoble(punto,this);
+	//	hielo.getImagen().setLocation(60,379);
+	//	hielo.getImagen().setSize(30, 30);
+	//	lista_objects.add(hielo);
+	//	gui.add(hielo.getImagen());
+	//	gui.repaint();
 	}
 	
 	public void agregarInfectadoTest() {
 //		Controlador c_infectado = new ControladorInfectados();
 		Punto punto = new Punto(80,60);
-		Personaje zombie = new Infectado(punto,this);
+		Personaje zombie = new InfectadoBeta(punto,this);
 		Personaje zombie2 = new Infectado(punto,this);
 		Personaje zombie3 = new Infectado(punto,this);
 //		c_infectado.setPersonaje(zombie);
 //		c_infectado.setGUI(gui);
 //		c_infectado.setMapa(this);
-		zombie.setMapa(this);
+	//	zombie.setMapa(this);
 		zombie.getImagen().setLocation(80,60);
 		zombie.setPunto(spawn2);
-		zombie2.setMapa(this);
+	//	zombie2.setMapa(this);
 		zombie2.getImagen().setLocation(80,60);
 		zombie2.setPunto(spawn3);
 		zombie.getImagen().setSize(44,64);
 		zombie2.getImagen().setSize(44,64);
 		
-		zombie3.setMapa(this);
+	//	zombie3.setMapa(this);
 		zombie3.getImagen().setLocation(80,60);
 		zombie3.setPunto(spawn0);
 		zombie3.getImagen().setSize(44,64);
