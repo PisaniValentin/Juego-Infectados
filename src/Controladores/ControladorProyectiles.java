@@ -28,12 +28,13 @@ protected int rango;
 		int contador=0;
 		int posY = proyectil.getPunto().getY();
 		List<GameObject> lista = mapa.getListaObjectos();
-		List<GameObject> lista_aux = new LinkedList<GameObject>();
-		for(GameObject objeto : lista) {
-			lista_aux.add(objeto);
-		}
+		
 		while(!proyectil_landed && contador<=rango) {
 			try {
+				List<GameObject> lista_aux = new LinkedList<GameObject>();
+				for(GameObject objeto : lista) {
+					lista_aux.add(objeto);
+				}
 				ControladorProyectiles.sleep(50);
 				posY = posY - 10;
 				proyectil.getPunto().setY(posY);

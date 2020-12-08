@@ -46,28 +46,27 @@ public class Infectado extends Personaje {
 	}
 	
 	public void recibirDaño(int daño) {
-		if(cargaViral>5) {
+		if(cargaViral>0) {
 			this.cargaViral=cargaViral-daño;
 			System.out.println("recibe daño el zombie, vida:"+cargaViral);
 		}else {
-			Random r = new Random();
-			float chance = r.nextFloat();
-			this.cargaViral=cargaViral-daño;
-			System.out.println("el zombie murio, vida:"+cargaViral);
 			mapa.getGui().remove(this.getImagen());
 			mapa.getGui().repaint();
 			mapa.getListaObjectos().remove(this);
+			Random r = new Random();
+			float chance = r.nextFloat();
+			System.out.println("el zombie murio, vida:"+cargaViral);
 			controlador.setPersonaje(null);
 			if(chance<0.90f) {
 				GameObject hielo = new Congelacion(punto,mapa);
 				hielo.getImagen().setLocation(this.punto.getX(),this.punto.getY());
-				hielo.getImagen().setSize(30, 30);
+				hielo.getImagen().setSize(24, 26);
 				mapa.getListaObjectos().add(hielo);
 				mapa.getGui().add(hielo.getImagen());
 				mapa.getGui().repaint();
 				hielo.mover();
 			}
-			
+		
 		}
 	}
 	

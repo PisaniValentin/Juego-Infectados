@@ -18,8 +18,6 @@ import Visitor.VisitorEfectoCongelar;
 public class Congelacion extends GameObject{
 protected Rectangle hitbox;
 protected Controlador controlador;
-// SI SIGO DISPARANDO SE CONGELA POCO TIEMPO Y DESPUES SE VUELVE A CONGELAR
-
 
 	public Congelacion(Punto p,Mapa map) {
 		this.cambiarImagen("Imagenes/hielo.png");

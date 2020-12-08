@@ -1,5 +1,7 @@
 package Visitor;
 
+import java.util.Random;
+
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
@@ -46,7 +48,9 @@ protected int daño;
 
 	@Override
 	public void visit(Congelacion c) {
+		
 		c.congelar();
+		
 	}
 
 	@Override

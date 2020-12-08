@@ -44,6 +44,8 @@ protected GameObject objeto;
 	public void activarEfectoTemporal() {
 		boolean recorro = true;
 		Visitor visitor = objeto.getVisitor();
+		mapa.getListaObjectos().remove(objeto);
+		mapa.getGui().remove(objeto.getImagen());
 		List<GameObject> lista_aux = new LinkedList<GameObject>();
 		for (GameObject objeto : mapa.getListaObjectos()) {
 			lista_aux.add(objeto);
@@ -59,7 +61,6 @@ protected GameObject objeto;
 				recorro=false;
 			}
 		}
-		
 		for (GameObject objeto : lista_aux) {
 			objeto.accept(visitor);
 		}

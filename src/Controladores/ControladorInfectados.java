@@ -22,7 +22,7 @@ protected Temporizador temporizador;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while( personaje.getCargaViral()>=0 && y<gui.getContentPane().getWidth()+300 ) {
+		while( personaje.getCargaViral()>0 && y<gui.getContentPane().getWidth()+300 ) {
 			try {
 				this.sleep(20);
 			} catch (InterruptedException e) {

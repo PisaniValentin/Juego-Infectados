@@ -12,7 +12,9 @@ public class ControladorPremios extends Controlador {
 		super(objeto, map);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
+	
 	@Override
 	public void mover() {
 		// TODO Auto-generated method stub
