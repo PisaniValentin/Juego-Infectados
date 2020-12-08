@@ -10,7 +10,7 @@ import Controladores.ControladorInfectados;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
-import Personajes.Infectado;
+import Personajes.InfectadoAlpha;
 import Personajes.InfectadoBeta;
 import Personajes.Personaje;
 import Proyectiles.Proyectil;
@@ -74,7 +74,7 @@ protected Punto spawn0,spawn1,spawn2,spawn3;
 		lista_objects.add(proyectil);
 	}
 	
-	public void agregarInfectado(Infectado infectado,Punto spawn) {
+	public void agregarInfectado(InfectadoAlpha infectado,Punto spawn) {
 		
 	}
 	
@@ -95,8 +95,8 @@ protected Punto spawn0,spawn1,spawn2,spawn3;
 //		Controlador c_infectado = new ControladorInfectados();
 		Punto punto = new Punto(80,60);
 		Personaje zombie = new InfectadoBeta(punto,this);
-		Personaje zombie2 = new Infectado(punto,this);
-		Personaje zombie3 = new Infectado(punto,this);
+		Personaje zombie2 = new InfectadoAlpha(punto,this);
+		Personaje zombie3 = new InfectadoAlpha(punto,this);
 //		c_infectado.setPersonaje(zombie);
 //		c_infectado.setGUI(gui);
 //		c_infectado.setMapa(this);

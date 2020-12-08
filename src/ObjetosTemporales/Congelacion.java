@@ -1,17 +1,13 @@
 package ObjetosTemporales;
 
 import java.awt.Rectangle;
-import java.util.LinkedList;
-import java.util.List;
 
 import Controladores.Controlador;
-import Controladores.ControladorInfectados;
 import Controladores.ControladorPremios;
 import Controladores.Temporizador;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
-import Personajes.Infectado;
 import Visitor.Visitor;
 import Visitor.VisitorEfectoCongelar;
 

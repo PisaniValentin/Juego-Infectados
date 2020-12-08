@@ -3,7 +3,7 @@ package Visitor;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
-import Personajes.Infectado;
+import Personajes.InfectadoAlpha;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
@@ -16,7 +16,7 @@ public class VisitorJugador extends Visitor {
 	}
 
 	@Override
-	public void visit(Infectado e) {
+	public void visit(InfectadoAlpha e) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -41,7 +41,7 @@ public class VisitorJugador extends Visitor {
 	@Override
 	public void visit(Congelacion c) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("entre al visitor de jugador");
 	}
 
 	@Override

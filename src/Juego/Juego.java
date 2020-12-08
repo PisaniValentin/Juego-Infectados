@@ -17,7 +17,7 @@ protected Mapa mapa;
 		gui.setMapa(mapa);
 		Personaje personaje = new Jugador();
 		
-		Punto punto = new Punto(113,445);
+		Punto punto = new Punto(113,355);
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);

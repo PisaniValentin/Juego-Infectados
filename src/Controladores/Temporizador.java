@@ -5,7 +5,7 @@ import java.util.List;
 import javax.swing.JLabel;
 import GameObjects.GameObject;
 import Juego.Mapa;
-import Personajes.Infectado;
+import Personajes.InfectadoAlpha;
 import Visitor.Visitor;
 
 public class Temporizador extends Thread {
@@ -52,6 +52,7 @@ protected GameObject objeto;
 		}
 		
 		for (GameObject objeto : lista_aux) {
+			System.out.println("entre aca1");
 			objeto.accept(visitor);
 		}
 		

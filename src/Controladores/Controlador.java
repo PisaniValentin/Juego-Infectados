@@ -25,6 +25,7 @@ protected GameObject objeto;
 public abstract void mover();
 public abstract void setPunto(Punto punto);
 public abstract Punto getPunto();
+public abstract  void congelar();
 
 public Controlador(GameObject objeto,Mapa map) {
 	this.objeto = objeto;
@@ -69,7 +70,7 @@ public void setProyectil(Proyectil p) {
 	this.proyectil = p;
 }
 
-public abstract  void congelar();
+
 
 public List<GameObject> getLista() {
 	return mapa.getListaObjectos();

@@ -21,6 +21,7 @@ public class DañoDoble extends GameObject{
 		mapa = map;
 		visitor = new VisitorEfectoDaño(this);
 	}
+	
 	public Visitor getVisitor() {
 		return visitor;
 	}

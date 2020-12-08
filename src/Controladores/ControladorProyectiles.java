@@ -6,15 +6,12 @@ import java.util.List;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
-import Personajes.Infectado;
-import Personajes.Personaje;
 import Visitor.Visitor;
 
 public class ControladorProyectiles extends Controlador {
 protected int rango;
 	public ControladorProyectiles(GameObject objeto, Mapa map,int rango) {
 		super(objeto, map);
-		// TODO Auto-generated constructor stub
 		this.rango = rango;
 	}
 
@@ -24,11 +21,10 @@ protected int rango;
 	
 	public void mover() {
 		boolean proyectil_landed=false;
-		Visitor visitor= proyectil.getVisitor();
+		Visitor visitor= objeto.getVisitor();
 		int contador=0;
-		int posY = proyectil.getPunto().getY();
+		int posY = objeto.getPunto().getY();
 		List<GameObject> lista = mapa.getListaObjectos();
-		
 		while(!proyectil_landed && contador<=rango) {
 			try {
 				List<GameObject> lista_aux = new LinkedList<GameObject>();
@@ -37,16 +33,16 @@ protected int rango;
 				}
 				ControladorProyectiles.sleep(50);
 				posY = posY - 10;
-				proyectil.getPunto().setY(posY);
-				proyectil.getImagen().setLocation(proyectil.getPunto().getX(), proyectil.getPunto().getY());
-				gui.repaint();
+				objeto.getPunto().setY(posY);
+				objeto.getImagen().setLocation(objeto.getPunto().getX(), objeto.getPunto().getY());
+				mapa.getGui().repaint();
 				contador++;
-				for(GameObject objeto : lista_aux) {
+				for(GameObject game_object : lista_aux) {
 					if(!mapa.getListaObjectos().isEmpty() ) {
-						if(proyectil.getHitbox().intersects(objeto.getHitbox()) && objeto != proyectil) {
-							objeto.accept(visitor);
+						if(proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
+							game_object.accept(visitor);
 							proyectil_landed = true;
-							gui.repaint();
+							mapa.getGui().repaint();
 						}
 					}
 				}
@@ -54,8 +50,8 @@ protected int rango;
 				e.printStackTrace();
 			}
 		}
-		gui.remove(proyectil.getImagen());
-		mapa.getListaObjectos().remove(proyectil);
+		mapa.getGui().remove(objeto.getImagen());
+		mapa.getListaObjectos().remove(objeto);
 		proyectil = null;
 	}
 
@@ -67,11 +63,6 @@ protected int rango;
 	@Override
 	public Punto getPunto() {
 		return this.punto;
-	}
-
-	public ControladorProyectiles getControlador() {
-		// TODO Auto-generated method stub
-		return (ControladorProyectiles) proyectil.getControlador();
 	}
 
 	@Override

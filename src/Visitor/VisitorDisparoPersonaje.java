@@ -5,7 +5,7 @@ import java.util.Random;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
-import Personajes.Infectado;
+import Personajes.InfectadoAlpha;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
@@ -23,7 +23,7 @@ protected int daño;
 	}
 
 	@Override
-	public void visit(Infectado e) {
+	public void visit(InfectadoAlpha e) {
 		e.recibirDaño(daño);
 	}
 

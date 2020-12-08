@@ -8,13 +8,13 @@ import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
 public class ControladorInfectados extends Controlador{
-public ControladorInfectados(GameObject objeto, Mapa map) {
-		super(objeto, map);
-	}
-
 protected boolean puedo = true;
 protected List<GameObject> lista;
 protected Temporizador temporizador;
+
+	public ControladorInfectados(GameObject objeto, Mapa map) {
+		super(objeto, map);
+	}
 
 	public void run() {
 		Visitor visitor = this.getPersonaje().getVisitor();
@@ -22,9 +22,9 @@ protected Temporizador temporizador;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while( personaje.getCargaViral()>0 && y<gui.getContentPane().getWidth()+300 ) {
+		while( personaje.getCargaViral()>0 && y<gui.getWidth() ) {
 			try {
-				this.sleep(20);
+				this.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

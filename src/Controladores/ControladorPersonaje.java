@@ -63,13 +63,13 @@ public class ControladorPersonaje extends Controlador implements KeyListener{
 				break;
 			}
 			case KeyEvent.VK_UP: {
-				Controlador c_disparo = new ControladorProyectiles(personaje,personaje.getMapa(),personaje.getRango());
 			//	c_disparo.setPersonaje(personaje);
-				c_disparo.setGUI(personaje.getMapa().getGui());
 				Punto pos_disparo = new Punto(pos.getX()+10,pos.getY()-20);
 				int x = pos_disparo.getX();
 				int y = pos_disparo.getY();
 				Proyectil disparo = new ProyectilJugador(rango,daño,pos_disparo);
+
+				Controlador c_disparo = new ControladorProyectiles(disparo,personaje.getMapa(),personaje.getRango());
 		//		disparo.setMapa(personaje.getMapa());
 				JLabel imagen = disparo.getImagen();
 				imagen.setLocation(x,y);

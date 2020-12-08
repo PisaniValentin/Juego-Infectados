@@ -4,7 +4,7 @@ package Personajes;
 import Juego.Mapa;
 import Juego.Punto;
 
-public class InfectadoBeta extends Infectado {
+public class InfectadoBeta extends InfectadoAlpha {
 protected Punto p;
 
 	public InfectadoBeta(Punto p,Mapa map) {

@@ -13,11 +13,11 @@ import ObjetosTemporales.DañoDoble;
 import Visitor.Visitor;
 import Visitor.VisitorInfectado;
 
-public class Infectado extends Personaje {
+public class InfectadoAlpha extends Personaje {
 	protected Rectangle hitbox_zombie;
 	protected Controlador controlador;
 	
-	public Infectado(Punto p,Mapa map) {
+	public InfectadoAlpha(Punto p,Mapa map) {
 		super(100,10);
 		this.setPunto(p);
 		this.cambiarImagen("Imagenes/zombie.gif");

@@ -3,7 +3,7 @@ package Visitor;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
-import Personajes.Infectado;
+import Personajes.InfectadoAlpha;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
@@ -16,7 +16,7 @@ public class VisitorEfectoCongelar extends Visitor {
 	}
 
 	@Override
-	public void visit(Infectado e) {
+	public void visit(InfectadoAlpha e) {
 		if(!e.estaQuieto()) {
 			System.out.println("entre visitor congelacion");
 			e.setVelocidad(0);
@@ -24,7 +24,6 @@ public class VisitorEfectoCongelar extends Visitor {
 		}else {
 			e.descongelar();
 		}
-		
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class VisitorEfectoCongelar extends Visitor {
 	@Override
 	public void visit(Congelacion c) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("entre a este visitor");
 	}
 
 	@Override

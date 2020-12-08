@@ -5,6 +5,7 @@ import java.util.List;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
+import Visitor.Visitor;
 
 public class ControladorPremios extends Controlador {
 
@@ -13,12 +14,33 @@ public class ControladorPremios extends Controlador {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public void run() {
+		mover();
+	}
 	
 	@Override
 	public void mover() {
-		// TODO Auto-generated method stub
-		
+		Visitor visitor = objeto.getVisitor();
+		Punto pos = objeto.getPunto();
+		int x = pos.getX();
+		int y = pos.getY();
+		int velocidad = 4;
+		boolean seAgarro = false;
+		while(y<3000 && !seAgarro) {
+			try {
+				this.sleep(30);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			y = y+velocidad;
+			objeto.getPunto().setY(y);
+			objeto.getImagen().setLocation(x, y);
+			mapa.getGui().repaint();
+			if((objeto.getHitbox().intersects(mapa.getJugador().getHitbox()) && !seAgarro) ) {
+				objeto.accept(visitor);
+				seAgarro=true;
+			}
+		}
 	}
 
 	@Override
