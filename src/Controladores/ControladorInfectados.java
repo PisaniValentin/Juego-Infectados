@@ -21,9 +21,10 @@ protected List<GameObject> lista;
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while( personaje.getCargaViral()>0 && y<gui.getWidth() ) {
+		while(personaje.getCargaViral()>0 && y<gui.getWidth() ) {
 			try {
 				this.sleep(30);
+
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -35,6 +36,8 @@ protected List<GameObject> lista;
 				mapa.getJugador().accept(visitor);
 				//golpeo=true;
 			}
+
+			
 		}
 	}
 	

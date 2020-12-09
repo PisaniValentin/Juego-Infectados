@@ -22,17 +22,14 @@ protected Punto p;
 	
 	
 	public void recibirDaño(int daño) {
-		if(cargaViral>5) {
+		if(cargaViral>0) {
 			this.cargaViral=cargaViral-daño/2;
-			//System.out.println("recibe daño el zombie, vida:"+cargaViral);
-		}else {
-		//	this.cargaViral=cargaViral-daño/2;
-			//System.out.println("el zombie murio, vida:"+cargaViral);
-			mapa.getGui().remove(this.getImagen());
-			mapa.restarContadorInfectados();
-			mapa.getGui().repaint();
-			mapa.getListaObjectos().remove(this);
-			controlador.setPersonaje(null);
+			if(cargaViral==0) {
+				mapa.getGui().remove(this.getImagen());
+				mapa.restarContadorInfectados();
+				mapa.getGui().repaint();
+				mapa.getListaObjectos().remove(this);
+			}
 		}
 	}
 
