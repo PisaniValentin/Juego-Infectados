@@ -2,24 +2,22 @@ package Controladores;
 
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JLabel;
 import GameObjects.GameObject;
 import Juego.Mapa;
-import Personajes.InfectadoAlpha;
 import Visitor.Visitor;
 
-public class Temporizador extends Thread {
+public class TemporizadorHielo extends Thread {
 protected boolean termino;
 protected Mapa mapa;
 protected GameObject objeto;
 
-	public Temporizador(GameObject objeto,Mapa mapa) {
+	public TemporizadorHielo(GameObject objeto,Mapa mapa) {
 		this.objeto=objeto;
 		termino = false;
 		this.mapa = mapa;
 	}
 	
-	public Temporizador() {
+	public TemporizadorHielo() {
 		termino = false;
 	}
 	
@@ -50,12 +48,9 @@ protected GameObject objeto;
 		for (GameObject objeto : mapa.getListaObjectos()) {
 			lista_aux.add(objeto);
 		}
-		
 		for (GameObject objeto : lista_aux) {
-			System.out.println("entre aca1");
 			objeto.accept(visitor);
 		}
-		
 		this.iniciarTemporizador();
 		while(recorro) {
 			if(this.getTiempo()) {
@@ -66,6 +61,5 @@ protected GameObject objeto;
 			objeto.accept(visitor);
 		}
 	}
-	
-	
+		
 }

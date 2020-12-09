@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 public class GUI extends JFrame {
 protected JPanel calle;
 protected Mapa mapa;
-	private CustomPanel contentPane;
+private CustomPanel contentPane;
 
 	/**
 	 * Launch the application.

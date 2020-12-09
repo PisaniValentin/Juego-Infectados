@@ -8,16 +8,21 @@ import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
-public class VisitorEfectoDaño extends Visitor{
+public class VisitorPremios extends Visitor {
 
-	public VisitorEfectoDaño(GameObject o) {
+	public VisitorPremios(GameObject o) {
 		super(o);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void visit(InfectadoAlpha e) {
-		// TODO Auto-generated method stub
-		
+		if(!e.estaQuieto()) {
+			e.setVelocidad(0);
+			e.setImagen("Imagenes/congelado.png");
+		}else {
+			e.descongelar();
+		}
 	}
 
 	@Override
@@ -34,25 +39,18 @@ public class VisitorEfectoDaño extends Visitor{
 
 	@Override
 	public void visit(Jugador d) {
-		if(!d.isBuffed()) {
-			d.getArma().setDaño(d.getDaño()*2);
-			d.setBuff(true);
-		}else {
-			d.getArma().setDaño(d.getDaño()/2);
-			d.setBuff(false);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void visit(Congelacion c) {
-		// TODO Auto-generated method stub
-		
+		c.congelar();
 	}
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
-		// TODO Auto-generated method stub
-		
+		dañoDoble.buff();
 	}
 
 }

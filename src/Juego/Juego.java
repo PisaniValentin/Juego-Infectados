@@ -21,13 +21,13 @@ protected Mapa mapa;
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);
-		mapa.agregarInfectadoTest();
+		//mapa.agregarInfectadoTest();
 		mapa.setJugador(personaje);
 		Controlador c_jugador = new ControladorPersonaje(personaje,mapa);
 		c_jugador.setPersonaje(personaje);
 		c_jugador.setGUI(gui);
 		gui.addKeyListener((ControladorPersonaje) c_jugador);
-		mapa.agregarHielo();
-		
+		//mapa.agregarHielo();
+		mapa.ponerOleada();
 		}
 }

@@ -12,6 +12,7 @@ protected Punto p;
 		mapa = map;
 		this.cambiarImagen("Imagenes/zombieBeta.gif");
 		velocidad= 1;
+		arma = new Arma(30,20);
 	}
 	
 	public void descongelar() {
@@ -23,11 +24,12 @@ protected Punto p;
 	public void recibirDaño(int daño) {
 		if(cargaViral>5) {
 			this.cargaViral=cargaViral-daño/2;
-			System.out.println("recibe daño el zombie, vida:"+cargaViral);
+			//System.out.println("recibe daño el zombie, vida:"+cargaViral);
 		}else {
-			this.cargaViral=cargaViral-daño/2;
-			System.out.println("el zombie murio, vida:"+cargaViral);
+		//	this.cargaViral=cargaViral-daño/2;
+			//System.out.println("el zombie murio, vida:"+cargaViral);
 			mapa.getGui().remove(this.getImagen());
+			mapa.restarContadorInfectados();
 			mapa.getGui().repaint();
 			mapa.getListaObjectos().remove(this);
 			controlador.setPersonaje(null);

@@ -9,9 +9,10 @@ import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
 public class VisitorDisparoInfectado extends Visitor {
-
-	public VisitorDisparoInfectado(GameObject o) {
+protected int daño;
+	public VisitorDisparoInfectado(GameObject o,int daño) {
 		super(o);
+		this.daño = daño;
 	}
 
 	@Override

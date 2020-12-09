@@ -2,11 +2,14 @@ package Juego;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.JLabel;
 
 import Controladores.Controlador;
 import Controladores.ControladorInfectados;
+import Controladores.Cronometro;
+import Controladores.Factory;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
@@ -21,16 +24,201 @@ protected Juego juego;
 protected Personaje jugador;
 protected List<GameObject> lista_objects;
 protected Punto spawn0,spawn1,spawn2,spawn3;
+protected Factory fabrica;
+protected int cantidad_infectados;
+
+	private class Temporizador extends Thread {
+		protected boolean continuar;
+		
+		protected Temporizador() {
+			this.continuar=false;
+		}
+		
+		public void run() {
+			frenar();
+		}
+		
+		public boolean getEstado() {
+			return continuar;
+		}
+		
+		public void frenar() {
+			try {
+				while(cantidad_infectados!=0) {
+					this.sleep(10);
+				}
+				continuar=true;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 
 	public Mapa(Juego juego,GUI gui) {
 		this.juego = juego;
 		this.gui = gui;
 		jugador = null;
+		cantidad_infectados = 0;
 		lista_objects = new LinkedList<GameObject>();
 		spawn0 = new Punto(30,11);
 		spawn1 = new Punto(80,11);
 		spawn2 = new Punto(130,11);
 		spawn3 = new Punto(180,11);
+		fabrica = new Factory(this);
+	}
+	
+	public void ponerOleada() {
+		for(int i = 0; i<3 ;i++) {
+			System.out.println("|OLEADA|:"+(i+1));
+			if(cantidad_infectados==0) {
+				boolean puedoseguir=false;
+				List<GameObject> lista = crear_oleada(i);
+				iniciarOleadas(lista);
+				Temporizador tempo = new Temporizador();
+				tempo.start();
+				while(!puedoseguir) {
+					puedoseguir=tempo.getEstado();
+				}
+				if(cantidad_infectados==0) {
+					System.out.println("entra aca2");
+					Cronometro cronometro = new Cronometro(2500);
+					boolean termino=false;
+					cronometro.start();
+					while(!termino) {
+						if(cronometro.termino()) {
+							termino=true;
+						}
+					}
+				}
+			}
+		}
+		System.out.println("GANASTE!!!");
+	}
+	
+	public void restarContadorInfectados() {
+		cantidad_infectados--;
+	}
+	
+	public void iniciarOleadas(List<GameObject> lista) {
+		for(GameObject objeto : lista) {
+			objeto.getImagen().setLocation(objeto.getPunto().getX(),objeto.getPunto().getY());
+			objeto.getImagen().setSize(44,64);
+			objeto.getImagen().setVisible(true);
+			lista_objects.add(objeto);
+			gui.add(objeto.getImagen());
+			objeto.mover();
+			cantidad_infectados++;
+			gui.repaint();
+			//tiempo entre aparicion de infectados
+			Cronometro cronometro = new Cronometro(2500);
+			boolean termino = false;
+			cronometro.run();
+			while(!termino) {
+				if(cronometro.termino()) {
+					termino=true;
+				}
+			}
+		}
+	}	
+	
+	public List<GameObject> crear_oleada(int dificultad){
+		List<GameObject> toReturn = new LinkedList<GameObject>();
+		Personaje infectado=null;
+		Random r = new Random();
+		switch (dificultad){
+		//oleadas para nivel 1
+		case 0:{
+			for(int i = 0; i<3;i++) {
+				int numero = r.nextInt(3);
+				switch(numero) {
+				case 0:{
+					infectado = fabrica.getPersonaje("alpha", spawn0);
+					toReturn.add(infectado);
+					break;
+				}
+				case 1:{
+					infectado = fabrica.getPersonaje("alpha", spawn1);
+					toReturn.add(infectado);
+					break;
+				}
+				case 2:{
+					infectado = fabrica.getPersonaje("alpha", spawn2);
+					toReturn.add(infectado);
+					break;
+				}
+				case 3:{
+					infectado = fabrica.getPersonaje("alpha", spawn3);
+					toReturn.add(infectado);
+					break;
+				}
+				}
+			}
+			break;
+		}
+		//oleadas para nivel 2
+		case 1: {
+			for(int i = 0; i<6;i++) {
+				int numero = r.nextInt(3);
+				switch(numero) {
+				case 0:{
+					infectado = fabrica.getPersonaje("alpha", spawn0);
+					toReturn.add(infectado);
+					break;
+				}
+				case 1:{
+					infectado = fabrica.getPersonaje("beta", spawn1);
+					toReturn.add(infectado);
+					break;
+				}
+				case 2:{
+					infectado = fabrica.getPersonaje("beta", spawn2);
+					toReturn.add(infectado);
+					break;
+				}
+				case 3:{
+					infectado = fabrica.getPersonaje("alpha", spawn3);
+					toReturn.add(infectado);
+					break;
+				}
+
+				}
+			}
+				break;
+		}
+		//oleadas para nivel 3
+		case 2:{
+			for(int i = 0; i<8;i++) {
+				int numero = r.nextInt(3);
+				switch(numero) {
+				case 0:{
+					infectado = fabrica.getPersonaje("beta", spawn0);
+					toReturn.add(infectado);
+					break;
+				}
+				case 1:{
+					infectado = fabrica.getPersonaje("beta", spawn1);
+					toReturn.add(infectado);
+					break;
+				}
+				case 2:{
+					infectado = fabrica.getPersonaje("beta", spawn2);
+					toReturn.add(infectado);
+					break;
+				}
+				case 3:{
+					infectado = fabrica.getPersonaje("beta", spawn3);
+					toReturn.add(infectado);
+					break;
+				}
+
+				}
+			}
+				break;
+		}
+		}
+		return toReturn;
 	}
 	
 	public Personaje getJugador() {

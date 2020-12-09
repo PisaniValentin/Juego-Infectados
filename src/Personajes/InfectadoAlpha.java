@@ -19,17 +19,20 @@ public class InfectadoAlpha extends Personaje {
 	
 	public InfectadoAlpha(Punto p,Mapa map) {
 		super(100,10);
-		this.setPunto(p);
+		Punto punto = new Punto(p.getX(),p.getY());
+		this.setPunto(punto);
 		this.cambiarImagen("Imagenes/zombie.gif");
 		mapa = map;
 		velocidad=2;
-		visitor = new VisitorInfectado(this,15);
+		arma = new Arma(30,30);
+		visitor = new VisitorInfectado(this,arma.getDaño());
 		controlador = new ControladorInfectados(this,map);
 		controlador.setPersonaje(this);
 		controlador.setMapa(map);
 		controlador.setGUI(mapa.getGui());
 		controlador.setLista(mapa.getListaObjectos());
 		hitbox_zombie = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),this.getAncho(),this.getAlto());
+		
 	}
 	
 	public Rectangle getHitbox() {
@@ -48,20 +51,20 @@ public class InfectadoAlpha extends Personaje {
 	public void recibirDaño(int daño) {
 		if(cargaViral>0) {
 			this.cargaViral=cargaViral-daño;
-			System.out.println("recibe daño el zombie, vida:"+cargaViral);
+			//System.out.println("recibe daño el zombie, vida:"+cargaViral);
 		}else {
 			mapa.getGui().remove(this.getImagen());
 			mapa.getGui().repaint();
 			mapa.getListaObjectos().remove(this);
+			mapa.restarContadorInfectados();//resto la cantidad de los infectados para controlar oleadas
 			Random r = new Random();
 			float chance = r.nextFloat();
-			System.out.println("el zombie murio, vida:"+cargaViral);
+			//System.out.println("el zombie murio, vida:"+cargaViral);
 			controlador.setPersonaje(null);
-			if(chance<0.90f) {
+			if(chance<0.30f) {
 				GameObject hielo = new Congelacion(punto,mapa);
 				hielo.getImagen().setLocation(this.punto.getX(),this.punto.getY());
 				hielo.getImagen().setSize(24, 26);
-				mapa.getListaObjectos().add(hielo);
 				mapa.getGui().add(hielo.getImagen());
 				mapa.getGui().repaint();
 				hielo.mover();

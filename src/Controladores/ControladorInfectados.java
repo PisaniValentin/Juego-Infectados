@@ -10,7 +10,6 @@ import Visitor.Visitor;
 public class ControladorInfectados extends Controlador{
 protected boolean puedo = true;
 protected List<GameObject> lista;
-protected Temporizador temporizador;
 
 	public ControladorInfectados(GameObject objeto, Mapa map) {
 		super(objeto, map);
@@ -57,10 +56,6 @@ protected Temporizador temporizador;
 		return null;
 	}
 	
-	public Controlador getControlador() {
-		return personaje.getControlador();
-	}
-
 	@Override
 	public void mover() {
 		// TODO Auto-generated method stub

@@ -3,12 +3,12 @@ package ObjetosTemporales;
 import java.awt.Rectangle;
 
 import Controladores.Controlador;
-import Controladores.Temporizador;
+import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
-import Visitor.VisitorEfectoDaño;
+import Visitor.VisitorPremios;
 
 public class DañoDoble extends GameObject{
 
@@ -19,7 +19,7 @@ public class DañoDoble extends GameObject{
 		hitbox = new Rectangle();
 		punto = p;
 		mapa = map;
-		visitor = new VisitorEfectoDaño(this);
+		visitor = new VisitorPremios(this);
 	}
 	
 	public Visitor getVisitor() {
@@ -38,7 +38,7 @@ public class DañoDoble extends GameObject{
 	}
 	
 	public void buff() {
-		Temporizador tempo = new Temporizador(this,mapa);
+		TemporizadorHielo tempo = new TemporizadorHielo(this,mapa);
 		tempo.start();
 		mapa.getListaObjectos().remove(this);
 		mapa.getGui().remove(this.getImagen());

@@ -4,12 +4,12 @@ import java.awt.Rectangle;
 
 import Controladores.Controlador;
 import Controladores.ControladorPremios;
-import Controladores.Temporizador;
+import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
-import Visitor.VisitorEfectoCongelar;
+import Visitor.VisitorPremios;
 
 public class Congelacion extends GameObject{
 protected Rectangle hitbox;
@@ -20,7 +20,7 @@ protected Controlador controlador;
 		hitbox = new Rectangle();
 		punto = p;
 		mapa = map;
-		visitor = new VisitorEfectoCongelar(this);
+		visitor = new VisitorPremios(this);
 		controlador = new ControladorPremios(this,mapa);
 	}
 	public Visitor getVisitor() {
@@ -37,9 +37,8 @@ protected Controlador controlador;
 	}
 	
 	public void congelar() {
-		Temporizador tempo = new Temporizador(this,mapa);
+		TemporizadorHielo tempo = new TemporizadorHielo(this,mapa);
 		tempo.start();
-		mapa.getListaObjectos().remove(this);
 		mapa.getGui().remove(this.getImagen());
 	}
 
