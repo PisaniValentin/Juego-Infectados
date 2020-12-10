@@ -6,16 +6,11 @@ import Visitor.Visitor;
 
 public class ControladorInfectados extends Controlador {
 
+	protected boolean puedo = true;
+
 	public ControladorInfectados(GameObject objeto) {
 		super(objeto);
 	}
-
-	protected boolean puedo = true;
-//	protected List<GameObject> lista;
-
-//	public ControladorInfectados(GameObject objeto, Mapa map) {
-//		super(objeto, map);
-//	}
 
 	public void run() {
 		Visitor visitor = this.getPersonaje().getVisitor();
@@ -23,28 +18,25 @@ public class ControladorInfectados extends Controlador {
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while (personaje.getCargaViral() > 0 && y < objeto.getMapa().getGui().getWidth()) {
+		while (personaje.getCargaViral() > 0) {
 			try {
 				Thread.sleep(30);
-
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			y = y + personaje.getVelocidad();
+			if(y < 420)
+				y = y + personaje.getVelocidad();
+			else
+				y = 0;
 			personaje.getPunto().setY(y);
 			personaje.getImagen().setLocation(x, y);
 			objeto.getMapa().getGui().repaint();
 			if ((personaje.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !golpeo)) {
 				objeto.getMapa().getJugador().accept(visitor);
-				// golpeo=true;
 			}
 
 		}
 	}
-
-//	public void setLista(List<GameObject> list) {
-//		this.lista = list;
-//	}
 
 	public void congelar() {
 	}

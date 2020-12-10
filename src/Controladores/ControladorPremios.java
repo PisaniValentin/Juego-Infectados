@@ -22,7 +22,7 @@ public class ControladorPremios extends Controlador {
 		int y = pos.getY();
 		int velocidad = 4;
 		boolean seAgarro = false;
-		while (y < 3000 && !seAgarro) {
+		while (y < 500 && !seAgarro) {
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
@@ -37,6 +37,8 @@ public class ControladorPremios extends Controlador {
 				seAgarro = true;
 			}
 		}
+		if(!seAgarro)
+			objeto.getMapa().getGui().remove(objeto.getImagen());
 	}
 
 	@Override
