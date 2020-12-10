@@ -21,6 +21,7 @@ public class Jugador extends Personaje {
 		cambiarImagen("Imagenes/jugador.png");
 		velocidad = 6;
 		buff = false;
+		
 	}
 
 	@Override
@@ -41,6 +42,7 @@ public class Jugador extends Personaje {
 
 	public void recibirDaño(int daño) {
 		cargaViral = cargaViral + daño;
+		mapa.getGui().actualizarEtiquetaVida(cargaViral);
 		if (cargaViral>=100) {
 			System.out.println("Perdio");
 			this.controlador.interrupt();

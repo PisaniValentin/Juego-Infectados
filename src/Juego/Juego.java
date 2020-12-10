@@ -21,6 +21,8 @@ public class Juego {
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);
+		System.out.println(mapa);
+		mapa.getGui().actualizarEtiquetaVida(0);
 
 		// mapa.agregarInfectadoTest();
 		mapa.setJugador(personaje);

@@ -33,6 +33,7 @@ public class Mapa {
 	public void ponerOleada() {
 		while (nivel.tieneSiguiente()) {
 			System.out.println("|OLEADA|:" + nivel.getNumeroNivel());
+			gui.actualizarEtiquetaOleada(nivel.getNumeroNivel());
 			Iterable<GameObject> lista = nivel.getOleada1();
 			iniciarOleadas(lista);
 			while (lista_objects.size() != 1) {

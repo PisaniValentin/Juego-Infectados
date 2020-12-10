@@ -29,6 +29,7 @@ public class ControladorProyectiles extends Controlador {
 		List<GameObject> lista = objeto.getMapa().getListaObjectos();
 		while (!proyectil_landed && contador <= rango) {
 			try {
+				// esto hay que sacarlo afuera del while (!proyectil_landed && contador <= rango) {
 				List<GameObject> lista_aux = new LinkedList<GameObject>();
 				for (GameObject objeto : lista) {
 					lista_aux.add(objeto);
@@ -40,6 +41,8 @@ public class ControladorProyectiles extends Controlador {
 				objeto.getMapa().getGui().repaint();
 				contador++;
 				for (GameObject game_object : lista_aux) {
+					//y en este if comprobar que game_object este vivo
+					//asi cuando muere se actualiza mas rapido que la lista
 					if (!objeto.getMapa().getListaObjectos().isEmpty()) {
 						if (proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
 							game_object.accept(visitor);
