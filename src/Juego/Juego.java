@@ -22,7 +22,7 @@ public class Juego {
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);
 		System.out.println(mapa);
-		mapa.getGui().actualizarEtiquetaVida(0);
+		mapa.getGui().actualizarEtiquetaCargaViral(0);
 
 		// mapa.agregarInfectadoTest();
 		mapa.setJugador(personaje);

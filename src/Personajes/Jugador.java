@@ -42,7 +42,7 @@ public class Jugador extends Personaje {
 
 	public void recibirDaño(int daño) {
 		cargaViral = cargaViral + daño;
-		mapa.getGui().actualizarEtiquetaVida(cargaViral);
+		mapa.getGui().actualizarEtiquetaCargaViral(cargaViral);
 		if (cargaViral>=100) {
 			System.out.println("Perdio");
 			this.controlador.interrupt();

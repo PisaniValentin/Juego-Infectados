@@ -41,10 +41,13 @@ public class VisitorPocion extends Visitor
 		int Sanacion = d.getCargaViral();
 		if(Sanacion >0)
 		{
-			if(Sanacion >=20)
+			if(Sanacion >=20) {
 				d.setCargaViral(Sanacion -20);
+				obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
+			}
 			else
 				d.setCargaViral(0);
+				obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
 		}
 		System.out.println("Vida = "+d.getCargaViral());
 	}

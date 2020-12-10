@@ -11,7 +11,7 @@ public class GUI extends JFrame {
 	protected JPanel calle;
 	protected Mapa mapa;
 	private CustomPanel contentPane;
-	protected JLabel etiquetaVida,etiquetaOleada,etiquetaVidaActual,etiquetaOleadaActual;
+	protected JLabel etiquetaCargaViral,etiquetaOleada,etiquetaCargaViralActual,etiquetaOleadaActual;
 
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,17 +21,17 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		this.setResizable(false);
-		etiquetaVida = new JLabel("Vida:");
-		etiquetaVida.setSize(80, 70);
-		etiquetaVida.setLocation(150, 450);
-		etiquetaVida.setForeground(Color.white);
-		contentPane.add(etiquetaVida);
+		etiquetaCargaViral = new JLabel("CargaViral:");
+		etiquetaCargaViral.setSize(80, 70);
+		etiquetaCargaViral.setLocation(130, 450);
+		etiquetaCargaViral.setForeground(Color.white);
+		contentPane.add(etiquetaCargaViral);
 		
-		etiquetaVidaActual = new JLabel("100");
-		etiquetaVidaActual.setSize(85, 70);
-		etiquetaVidaActual.setLocation(180, 450);
-		etiquetaVidaActual.setForeground(Color.white);
-		contentPane.add(etiquetaVidaActual);
+		etiquetaCargaViralActual = new JLabel("100");
+		etiquetaCargaViralActual.setSize(85, 70);
+		etiquetaCargaViralActual.setLocation(200, 450);
+		etiquetaCargaViralActual.setForeground(Color.white);
+		contentPane.add(etiquetaCargaViralActual);
 		
 		etiquetaOleada = new JLabel("Oleada:");
 		etiquetaOleada.setSize(80, 70);
@@ -49,8 +49,8 @@ public class GUI extends JFrame {
 	}
 	
 	
-	public void actualizarEtiquetaVida(int vida) {
-		etiquetaVidaActual.setText(""+vida);
+	public void actualizarEtiquetaCargaViral(int vida) {
+		etiquetaCargaViralActual.setText(""+vida);
 	}
 	
 	public void actualizarEtiquetaOleada(int oleada) {
