@@ -48,5 +48,9 @@ public abstract class Personaje extends GameObject {
 	public int getCargaViral() {
 		return cargaViral;
 	}
-
+	
+	public void setCargaViral(int vida)
+	{
+		cargaViral = vida;
+	}
 }

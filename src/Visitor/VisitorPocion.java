@@ -36,8 +36,17 @@ public class VisitorPocion extends Visitor
 
 	@Override
 	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
-		
+
+		obj.getMapa().getGui().remove(obj.getImagen());
+		int Sanacion = d.getCargaViral();
+		if(Sanacion >0)
+		{
+			if(Sanacion >=20)
+				d.setCargaViral(Sanacion -20);
+			else
+				d.setCargaViral(0);
+		}
+		System.out.println("Vida = "+d.getCargaViral());
 	}
 
 	@Override
