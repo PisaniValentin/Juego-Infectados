@@ -8,7 +8,6 @@ import Visitor.Visitor;
 import Visitor.VisitorJugador;
 
 public class Jugador extends Personaje {
-	protected VisitorJugador visitor;
 	protected ControladorPersonaje controlador;
 	protected boolean buff;
 

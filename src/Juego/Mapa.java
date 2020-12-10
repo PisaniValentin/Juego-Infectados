@@ -6,14 +6,8 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Controladores.Controlador;
-import Controladores.ControladorInfectados;
-import Controladores.Cronometro;
-import Controladores.Factory;
 import Controladores.Nivel;
 import GameObjects.GameObject;
-import ObjetosTemporales.Congelacion;
-import ObjetosTemporales.DañoDoble;
 import Personajes.InfectadoAlpha;
 import Personajes.InfectadoBeta;
 import Personajes.Personaje;
@@ -26,7 +20,7 @@ public class Mapa {
 	protected List<GameObject> lista_objects;
 //	protected Punto spawn0, spawn1, spawn2, spawn3;
 	protected Punto[] spawn;
-	protected Factory fabrica;
+//	protected Factory fabrica;
 //	protected int cantidad_infectados;
 	protected Nivel nivel;
 
@@ -69,7 +63,7 @@ public class Mapa {
 //		spawn2 = new Punto(130, 11);
 //		spawn3 = new Punto(180, 11);
 		spawn = new Punto[] { new Punto(30, 11), new Punto(80, 11), new Punto(130, 11), new Punto(180, 11) };
-		fabrica = new Factory(this);
+//		fabrica = new Factory(this);
 		nivel = new Nivel();
 	}
 
@@ -111,6 +105,14 @@ public class Mapa {
 			System.out.println("oleada pt2");
 			lista = nivel.getOleada2();
 			iniciarOleadas(lista);
+			while (lista_objects.size() != 1) {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			nivel.cambiarNivel();
 		}
 		System.out.println("GANASTE!!!");
 	}

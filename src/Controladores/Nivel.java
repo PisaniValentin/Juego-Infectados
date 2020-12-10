@@ -46,7 +46,7 @@ public class Nivel {
 		default:
 			fabrica = new FabricaFacil();
 			tamañoOleada = 6;
-			numeroNivel = 1;
+			numeroNivel = 4;
 			break;
 		}
 	}
