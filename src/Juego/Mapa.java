@@ -42,6 +42,11 @@ public class Mapa {
 					e.printStackTrace();
 				}
 			}
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 			System.out.println("oleada pt2");
 			lista = nivel.getOleada2();
 			iniciarOleadas(lista);
@@ -53,6 +58,11 @@ public class Mapa {
 				}
 			}
 			nivel.cambiarNivel();
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 		}
 		System.out.println("GANASTE!!!");
 	}

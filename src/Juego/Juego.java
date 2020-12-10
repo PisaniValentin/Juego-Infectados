@@ -17,7 +17,7 @@ public class Juego {
 
 		// crear personaje
 		Personaje personaje = new Jugador();
-		Punto punto = new Punto(113, 355);
+		Punto punto = new Punto(113, 400);
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);

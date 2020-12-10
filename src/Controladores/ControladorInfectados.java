@@ -28,7 +28,7 @@ public class ControladorInfectados extends Controlador {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(y < 350)
+			if(y < 400)
 				y = y + personaje.getVelocidad();
 			else
 				y = 0;
