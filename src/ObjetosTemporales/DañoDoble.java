@@ -2,39 +2,20 @@ package ObjetosTemporales;
 
 import java.awt.Rectangle;
 
-import Controladores.Controlador;
 import Controladores.TemporizadorHielo;
-import GameObjects.GameObject;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
-import Visitor.VisitorPremios;
+import Visitor.VisitorDañoDoble;
 
-public class DañoDoble extends GameObject {
-
-	protected Rectangle hitbox;
+public class DañoDoble extends Premio {
 
 	public DañoDoble(Punto p, Mapa map) {
-		this.cambiarImagen("Imagenes/hielo.png");
+		this.cambiarImagen("Imagenes/danodoble.png");
 		hitbox = new Rectangle();
 		punto = p;
 		mapa = map;
-		visitor = new VisitorPremios(this);
-	}
-
-	public Visitor getVisitor() {
-		return visitor;
-	}
-
-	@Override
-	public Rectangle getHitbox() {
-		return new Rectangle(this.getPunto().getX(), this.getPunto().getY(), this.getAncho(), this.getAlto());
-	}
-
-	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
-
+		visitor = new VisitorDañoDoble(this);
 	}
 
 	public void buff() {
@@ -45,15 +26,13 @@ public class DañoDoble extends GameObject {
 	}
 
 	@Override
-	public Controlador getControlador() {
-		// TODO Auto-generated method stub
-		return null;
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+
 	}
 
-	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-
+	public Visitor getVisitor() {
+		return visitor;
 	}
 
 }

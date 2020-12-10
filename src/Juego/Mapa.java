@@ -18,9 +18,7 @@ public class Mapa {
 	protected Juego juego;
 	protected Personaje jugador;
 	protected List<GameObject> lista_objects;
-//	protected Punto spawn0, spawn1, spawn2, spawn3;
 	protected Punto[] spawn;
-//	protected Factory fabrica;
 //	protected int cantidad_infectados;
 	protected Nivel nivel;
 
@@ -58,39 +56,11 @@ public class Mapa {
 		jugador = null;
 //		cantidad_infectados = 0;
 		lista_objects = new LinkedList<GameObject>();
-//		spawn0 = new Punto(30, 11);
-//		spawn1 = new Punto(80, 11);
-//		spawn2 = new Punto(130, 11);
-//		spawn3 = new Punto(180, 11);
 		spawn = new Punto[] { new Punto(30, 11), new Punto(80, 11), new Punto(130, 11), new Punto(180, 11) };
-//		fabrica = new Factory(this);
 		nivel = new Nivel();
 	}
 
 	public void ponerOleada() {
-//		for (int i = 0; i < 3; i++) {
-//			System.out.println("|OLEADA|:" + (i + 1));
-//			if (cantidad_infectados == 0) {
-//				boolean puedoseguir = false;
-//				List<GameObject> lista = crear_oleada(i);
-//				Iterable<GameObject> lista = nivel.getOleada();
-//				iniciarOleadas(lista);
-//				
-//				Temporizador tempo = new Temporizador();
-//				tempo.start();
-//				while (!puedoseguir) {
-//					puedoseguir = tempo.getEstado();
-//				}
-//				if (cantidad_infectados == 0) {
-//					System.out.println("entra aca2");
-//					try {
-//						Thread.sleep(2500);
-//					} catch (InterruptedException e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}
 		while (nivel.tieneSiguiente()) {
 			System.out.println("|OLEADA|:" + nivel.getNumeroNivel());
 			Iterable<GameObject> lista = nivel.getOleada1();
@@ -117,9 +87,9 @@ public class Mapa {
 		System.out.println("GANASTE!!!");
 	}
 
-//	public void restarContadorInfectados() {
-//		cantidad_infectados--;
-//	}
+	//	public void restarContadorInfectados() {
+	//		cantidad_infectados--;
+	//	}
 
 //	public void iniciarOleadas(List<GameObject> lista) {
 //		for (GameObject objeto : lista) {
@@ -159,104 +129,6 @@ public class Mapa {
 			}
 		}
 	}
-
-//	public List<GameObject> crear_oleada(int dificultad) {
-//		List<GameObject> toReturn = new LinkedList<GameObject>();
-//		Personaje infectado = null;
-//		Random r = new Random();
-//		switch (dificultad) {
-//		// oleadas para nivel 1
-//		case 0: {
-//			for (int i = 0; i < 3; i++) {
-//				int numero = r.nextInt(3);
-//				switch (numero) {
-//				case 0: {
-//					infectado = fabrica.getPersonaje("alpha", spawn0);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 1: {
-//					infectado = fabrica.getPersonaje("alpha", spawn1);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 2: {
-//					infectado = fabrica.getPersonaje("alpha", spawn2);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 3: {
-//					infectado = fabrica.getPersonaje("alpha", spawn3);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				}
-//			}
-//			break;
-//		}
-//		// oleadas para nivel 2
-//		case 1: {
-//			for (int i = 0; i < 6; i++) {
-//				int numero = r.nextInt(3);
-//				switch (numero) {
-//				case 0: {
-//					infectado = fabrica.getPersonaje("alpha", spawn0);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 1: {
-//					infectado = fabrica.getPersonaje("beta", spawn1);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 2: {
-//					infectado = fabrica.getPersonaje("beta", spawn2);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 3: {
-//					infectado = fabrica.getPersonaje("alpha", spawn3);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//
-//				}
-//			}
-//			break;
-//		}
-//		// oleadas para nivel 3
-//		case 2: {
-//			for (int i = 0; i < 8; i++) {
-//				int numero = r.nextInt(3);
-//				switch (numero) {
-//				case 0: {
-//					infectado = fabrica.getPersonaje("beta", spawn0);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 1: {
-//					infectado = fabrica.getPersonaje("beta", spawn1);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 2: {
-//					infectado = fabrica.getPersonaje("beta", spawn2);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//				case 3: {
-//					infectado = fabrica.getPersonaje("beta", spawn3);
-//					toReturn.add(infectado);
-//					break;
-//				}
-//
-//				}
-//			}
-//			break;
-//		}
-//		}
-//		return toReturn;
-//	}
 
 	public Personaje getJugador() {
 		return jugador;
