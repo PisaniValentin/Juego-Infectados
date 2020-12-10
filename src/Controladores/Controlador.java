@@ -12,7 +12,6 @@ public abstract class Controlador extends Thread {
 	protected Personaje personaje;
 	protected JLabel imagen;
 	protected int ancho, largo;
-//	protected Mapa mapa;
 	protected GameObject objeto;
 
 	public abstract void mover();
@@ -23,22 +22,9 @@ public abstract class Controlador extends Thread {
 
 	public abstract void congelar();
 
-//	public Controlador(GameObject objeto, Mapa map) {
-//		this.objeto = objeto;
-//		this.mapa = map;
-//	}
-
 	public Controlador(GameObject objeto) {
 		this.objeto = objeto;
 	}
-
-//	public void setMapa(Mapa mapa) {
-//		this.mapa = mapa;
-//	}
-//
-//	public Mapa getMapa() {
-//		return mapa;
-//	}
 
 	public JLabel getImagen() {
 		return imagen;
@@ -63,11 +49,5 @@ public abstract class Controlador extends Thread {
 	public void setProyectil(Proyectil p) {
 		this.proyectil = p;
 	}
-
-//	public List<GameObject> getLista() {
-//		return mapa.getListaObjectos();
-//	}
-
-//	public abstract void setLista(List<GameObject> listaObjectos);
 
 }

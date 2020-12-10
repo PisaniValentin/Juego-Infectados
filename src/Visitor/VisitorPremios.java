@@ -3,7 +3,8 @@ package Visitor;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
-import Personajes.InfectadoAlpha;
+import ObjetosTemporales.Pocion;
+import Personajes.Infectado;
 import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
@@ -16,7 +17,7 @@ public class VisitorPremios extends Visitor {
 	}
 
 	@Override
-	public void visit(InfectadoAlpha e) {
+	public void visit(Infectado e) {
 		if (!e.estaQuieto()) {
 			e.setVelocidad(0);
 			e.setImagen("Imagenes/congelado.png");
@@ -51,6 +52,12 @@ public class VisitorPremios extends Visitor {
 	@Override
 	public void visit(DañoDoble dañoDoble) {
 		dañoDoble.buff();
+	}
+
+	@Override
+	public void visit(Pocion pocion) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

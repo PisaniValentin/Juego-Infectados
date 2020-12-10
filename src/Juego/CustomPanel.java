@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 
 public class CustomPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void paint(Graphics g) {
 		Dimension dimension = this.getSize();

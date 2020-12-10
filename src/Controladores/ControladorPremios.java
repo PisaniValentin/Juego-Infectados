@@ -1,9 +1,6 @@
 package Controladores;
 
-import java.util.List;
-
 import GameObjects.GameObject;
-import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
 
@@ -12,11 +9,6 @@ public class ControladorPremios extends Controlador {
 	public ControladorPremios(GameObject objeto) {
 		super(objeto);
 	}
-
-//	public ControladorPremios(GameObject objeto, Mapa map) {
-//		super(objeto, map);
-//		// TODO Auto-generated constructor stub
-//	}
 
 	public void run() {
 		mover();
@@ -64,11 +56,5 @@ public class ControladorPremios extends Controlador {
 		// TODO Auto-generated method stub
 
 	}
-
-//	@Override
-//	public void setLista(List<GameObject> listaObjectos) {
-//		// TODO Auto-generated method stub
-//
-//	}
 
 }

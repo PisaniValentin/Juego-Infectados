@@ -3,28 +3,20 @@ package ObjetosTemporales;
 import java.awt.Rectangle;
 
 import Controladores.Controlador;
-import Controladores.TemporizadorHielo;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
-import Visitor.VisitorPremios;
+import Visitor.VisitorPocion;
 
-public class Congelacion extends Premio {
-
-	public Congelacion(Punto p, Mapa map) {
+public class Pocion extends Premio
+{
+	public Pocion(Punto p, Mapa map) {
 		super(p,map);
-		this.cambiarImagen("Imagenes/hielo.png");
+		this.cambiarImagen("Imagenes/pocion.png");
 		hitbox = new Rectangle();
-		visitor = new VisitorPremios(this);
+		visitor = new VisitorPocion(this);
 	}
 
-	public void congelar() {
-		TemporizadorHielo tempo = new TemporizadorHielo(this, mapa);
-		tempo.start();
-		mapa.getGui().remove(this.getImagen());
-	}
-
-	@Override
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 
@@ -40,9 +32,10 @@ public class Congelacion extends Premio {
 		return new Rectangle(this.getPunto().getX(), this.getPunto().getY(), this.getAncho(), this.getAlto());
 	}
 
+
 	@Override
 	public Controlador getControlador() {
 		return null;
 	}
-
+	
 }

@@ -19,16 +19,4 @@ public class InfectadoBeta extends InfectadoAlpha {
 		this.setImagen("Imagenes/zombieBeta.gif");
 	}
 
-	public void recibirDaño(int daño) {
-		if (cargaViral > 0) {
-			this.cargaViral = cargaViral - daño / 2;
-			if (cargaViral == 0) {
-				mapa.getGui().remove(this.getImagen());
-//				mapa.restarContadorInfectados();
-				mapa.getGui().repaint();
-				mapa.getListaObjectos().remove(this);
-			}
-		}
-	}
-
 }
