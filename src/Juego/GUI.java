@@ -13,25 +13,6 @@ public class GUI extends JFrame {
 	private CustomPanel contentPane;
 	protected JLabel etiquetaVida,etiquetaOleada,etiquetaVidaActual,etiquetaOleadaActual;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					GUI frame = new GUI();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 288, 541);
