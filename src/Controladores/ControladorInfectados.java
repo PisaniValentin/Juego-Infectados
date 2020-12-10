@@ -6,15 +6,11 @@ import javax.swing.JLabel;
 
 import GameObjects.GameObject;
 import Juego.Punto;
-import ObjetosTemporales.Premio;
 import Proyectiles.Proyectil;
 import Proyectiles.ProyectilInfectado;
-import Proyectiles.ProyectilJugador;
 import Visitor.Visitor;
 
 public class ControladorInfectados extends Controlador {
-
-	protected boolean puedo = true;
 
 	public ControladorInfectados(GameObject objeto) {
 		super(objeto);
@@ -32,7 +28,7 @@ public class ControladorInfectados extends Controlador {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(y < 420)
+			if(y < 350)
 				y = y + personaje.getVelocidad();
 			else
 				y = 0;
@@ -69,22 +65,18 @@ public class ControladorInfectados extends Controlador {
 		}
 	}
 
-	public void congelar() {
-	}
+	public void congelar() {}
 
 	@Override
 	public void setPunto(Punto punto) {
+		this.punto = punto;
 	}
 
-	@Override
 	public Punto getPunto() {
-		return null;
+		return punto;
 	}
 
 	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-
-	}
+	public void mover() {}
 
 }

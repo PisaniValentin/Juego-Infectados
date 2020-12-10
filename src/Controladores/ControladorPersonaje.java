@@ -14,33 +14,17 @@ public class ControladorPersonaje extends Controlador implements KeyListener {
 		super(objeto);
 	}
 
-//	public ControladorPersonaje(GameObject objeto, Mapa map) {
-//		super(objeto, map);
-//		// TODO Auto-generated constructor stub
-//	}
-
 	@Override
-	public void mover() {
-		// TODO Auto-generated method stub
-
-	}
+	public void mover() {}
 
 	@Override
 	public void setPunto(Punto punto) {
-		// TODO Auto-generated method stub
-
+		this.punto = punto;
 	}
 
 	@Override
 	public Punto getPunto() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		return punto;
 	}
 
 	@Override
@@ -95,21 +79,9 @@ public class ControladorPersonaje extends Controlador implements KeyListener {
 	}
 
 	@Override
-	public void congelar() {
-		// TODO Auto-generated method stub
-
-	}
+	public void congelar() {}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
-//	@Override
-//	public void setLista(List<GameObject> listaObjectos) {
-//		// TODO Auto-generated method stub
-//
-//	}
+	public void keyTyped(KeyEvent e) {}
 
 }

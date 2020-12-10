@@ -43,20 +43,15 @@ public class ControladorPremios extends Controlador {
 
 	@Override
 	public void setPunto(Punto punto) {
-		// TODO Auto-generated method stub
-
+		this.punto = punto;
 	}
 
 	@Override
 	public Punto getPunto() {
-		// TODO Auto-generated method stub
-		return null;
+		return punto;
 	}
 
 	@Override
-	public void congelar() {
-		// TODO Auto-generated method stub
-
-	}
+	public void congelar() {}
 
 }

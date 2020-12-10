@@ -40,7 +40,11 @@ public class Jugador extends Personaje {
 	}
 
 	public void recibirDaño(int daño) {
-		cargaViral = cargaViral - daño;
+		cargaViral = cargaViral + daño;
+		if (cargaViral>=100) {
+			System.out.println("Perdio");
+			this.controlador.interrupt();
+		}
 		System.out.println("el jugador recibio daño" + cargaViral);
 	}
 
