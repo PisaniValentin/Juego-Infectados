@@ -18,24 +18,24 @@ public class VisitorJugador extends Visitor {
 	@Override
 	public void visit(InfectadoAlpha e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(ProyectilJugador d) {
-		//no debe hacer nada
+		// no debe hacer nada
 	}
 
 	@Override
 	public void visit(ProyectilInfectado d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(Jugador d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -48,9 +48,7 @@ public class VisitorJugador extends Visitor {
 	public void visit(DañoDoble dañoDoble) {
 
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
+
 }

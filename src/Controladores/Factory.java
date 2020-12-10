@@ -8,19 +8,17 @@ import Personajes.Personaje;
 
 public class Factory {
 	protected Mapa map;
-	
+
 	public Factory(Mapa map) {
 		this.map = map;
 	}
-	
-	public Personaje getPersonaje(String nombre,Punto punto) {
-		if(nombre.equals("alpha")) {
-			return new InfectadoAlpha(punto,map);
-		}else {
-			return new InfectadoBeta(punto,map);
+
+	public Personaje getPersonaje(String nombre, Punto punto) {
+		if (nombre.equals("alpha")) {
+			return new InfectadoAlpha(punto, map);
+		} else {
+			return new InfectadoBeta(punto, map);
 		}
 	}
-	
-	
-	
+
 }

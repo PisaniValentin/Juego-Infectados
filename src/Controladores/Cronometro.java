@@ -1,18 +1,18 @@
 package Controladores;
 
-public class Cronometro extends Thread{
-protected int tiempo;
-protected boolean noTermina;
+public class Cronometro extends Thread {
+	protected int tiempo;
+	protected boolean noTermina;
 
 	public Cronometro(int tiempo) {
 		this.tiempo = tiempo;
 		noTermina = true;
 	}
-	
+
 	public void run() {
 		pausar();
 	}
-	
+
 	public void pausar() {
 		try {
 			this.sleep(tiempo);
@@ -22,9 +22,9 @@ protected boolean noTermina;
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean termino() {
 		return noTermina;
 	}
-	
+
 }

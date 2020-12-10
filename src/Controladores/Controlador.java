@@ -1,83 +1,73 @@
 package Controladores;
 
-import java.util.List;
-
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import GameObjects.GameObject;
-import Juego.GUI;
-import Juego.Mapa;
 import Juego.Punto;
 import Personajes.Personaje;
 import Proyectiles.Proyectil;
 
 public abstract class Controlador extends Thread {
-protected Proyectil proyectil;
-protected Punto punto;
-protected Personaje personaje;
-protected JLabel imagen;
-protected int ancho,largo;
-protected GUI gui;
-protected Mapa mapa;
-protected GameObject objeto;
+	protected Proyectil proyectil;
+	protected Punto punto;
+	protected Personaje personaje;
+	protected JLabel imagen;
+	protected int ancho, largo;
+//	protected Mapa mapa;
+	protected GameObject objeto;
 
-public abstract void mover();
-public abstract void setPunto(Punto punto);
-public abstract Punto getPunto();
-public abstract  void congelar();
+	public abstract void mover();
 
-public Controlador(GameObject objeto,Mapa map) {
-	this.objeto = objeto;
-	this.mapa = map;
-}
+	public abstract void setPunto(Punto punto);
 
-public GUI getGUI() {
-	return gui;
-}
-public void setGUI(GUI gui) {
-	this.gui=gui;
-}
+	public abstract Punto getPunto();
 
-public void setMapa(Mapa mapa) {
-	this.mapa = mapa;
-}
+	public abstract void congelar();
 
-public Mapa getMapa() {
-	return mapa;
-}
+//	public Controlador(GameObject objeto, Mapa map) {
+//		this.objeto = objeto;
+//		this.mapa = map;
+//	}
 
-public JLabel getImagen() {
-	return imagen ;
-}
-public void setImagen(JLabel imagen) {
-	this.imagen = imagen ;
-}
+	public Controlador(GameObject objeto) {
+		this.objeto = objeto;
+	}
 
-public Proyectil getProyectil() {
-	return proyectil;
-}
+//	public void setMapa(Mapa mapa) {
+//		this.mapa = mapa;
+//	}
+//
+//	public Mapa getMapa() {
+//		return mapa;
+//	}
 
-public Personaje getPersonaje() {
-	return personaje;
-}
+	public JLabel getImagen() {
+		return imagen;
+	}
 
-public void setPersonaje(Personaje p) {
-	this.personaje = p;
-}
+	public void setImagen(JLabel imagen) {
+		this.imagen = imagen;
+	}
 
-public void setProyectil(Proyectil p) {
-	this.proyectil = p;
-}
+	public Proyectil getProyectil() {
+		return proyectil;
+	}
 
+	public Personaje getPersonaje() {
+		return personaje;
+	}
 
+	public void setPersonaje(Personaje p) {
+		this.personaje = p;
+	}
 
-public List<GameObject> getLista() {
-	return mapa.getListaObjectos();
-}
-public abstract void setLista(List<GameObject> listaObjectos);
+	public void setProyectil(Proyectil p) {
+		this.proyectil = p;
+	}
 
+//	public List<GameObject> getLista() {
+//		return mapa.getListaObjectos();
+//	}
 
-
+//	public abstract void setLista(List<GameObject> listaObjectos);
 
 }

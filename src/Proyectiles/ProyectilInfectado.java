@@ -12,7 +12,7 @@ public class ProyectilInfectado extends Proyectil {
 
 	public ProyectilInfectado(int rango, int daño, Punto punto) {
 		super(rango, daño, punto);
-		visitor = new VisitorDisparoInfectado(this,daño);
+		visitor = new VisitorDisparoInfectado(this, daño);
 	}
 
 	public void accept(Visitor visitor) {
@@ -30,6 +30,5 @@ public class ProyectilInfectado extends Proyectil {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 }

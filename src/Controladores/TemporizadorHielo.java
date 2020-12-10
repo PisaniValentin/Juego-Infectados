@@ -7,38 +7,38 @@ import Juego.Mapa;
 import Visitor.Visitor;
 
 public class TemporizadorHielo extends Thread {
-protected boolean termino;
-protected Mapa mapa;
-protected GameObject objeto;
+	protected boolean termino;
+	protected Mapa mapa;
+	protected GameObject objeto;
 
-	public TemporizadorHielo(GameObject objeto,Mapa mapa) {
-		this.objeto=objeto;
+	public TemporizadorHielo(GameObject objeto, Mapa mapa) {
+		this.objeto = objeto;
 		termino = false;
 		this.mapa = mapa;
 	}
-	
+
 	public TemporizadorHielo() {
 		termino = false;
 	}
-	
+
 	public void run() {
 		activarEfectoTemporal();
 	}
-		
+
 	public void iniciarTemporizador() {
 		try {
 			this.sleep(3000);
-			termino=true;
+			termino = true;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean getTiempo() {
 		return termino;
 	}
-	
+
 	public void activarEfectoTemporal() {
 		boolean recorro = true;
 		Visitor visitor = objeto.getVisitor();
@@ -52,14 +52,14 @@ protected GameObject objeto;
 			objeto.accept(visitor);
 		}
 		this.iniciarTemporizador();
-		while(recorro) {
-			if(this.getTiempo()) {
-				recorro=false;
+		while (recorro) {
+			if (this.getTiempo()) {
+				recorro = false;
 			}
 		}
 		for (GameObject objeto : lista_aux) {
 			objeto.accept(visitor);
 		}
 	}
-		
+
 }

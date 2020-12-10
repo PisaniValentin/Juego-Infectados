@@ -9,15 +9,19 @@ import Visitor.Visitor;
 
 public class ControladorPremios extends Controlador {
 
-	public ControladorPremios(GameObject objeto, Mapa map) {
-		super(objeto, map);
-		// TODO Auto-generated constructor stub
+	public ControladorPremios(GameObject objeto) {
+		super(objeto);
 	}
-	
+
+//	public ControladorPremios(GameObject objeto, Mapa map) {
+//		super(objeto, map);
+//		// TODO Auto-generated constructor stub
+//	}
+
 	public void run() {
 		mover();
 	}
-	
+
 	@Override
 	public void mover() {
 		Visitor visitor = objeto.getVisitor();
@@ -26,19 +30,19 @@ public class ControladorPremios extends Controlador {
 		int y = pos.getY();
 		int velocidad = 4;
 		boolean seAgarro = false;
-		while(y<3000 && !seAgarro) {
+		while (y < 3000 && !seAgarro) {
 			try {
 				this.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			y = y+velocidad;
+			y = y + velocidad;
 			objeto.getPunto().setY(y);
 			objeto.getImagen().setLocation(x, y);
-			mapa.getGui().repaint();
-			if((objeto.getHitbox().intersects(mapa.getJugador().getHitbox()) && !seAgarro) ) {
+			objeto.getMapa().getGui().repaint();
+			if ((objeto.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !seAgarro)) {
 				objeto.accept(visitor);
-				seAgarro=true;
+				seAgarro = true;
 			}
 		}
 	}
@@ -46,7 +50,7 @@ public class ControladorPremios extends Controlador {
 	@Override
 	public void setPunto(Punto punto) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -58,13 +62,13 @@ public class ControladorPremios extends Controlador {
 	@Override
 	public void congelar() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	@Override
-	public void setLista(List<GameObject> listaObjectos) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void setLista(List<GameObject> listaObjectos) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }

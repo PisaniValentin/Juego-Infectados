@@ -17,10 +17,10 @@ public class VisitorPremios extends Visitor {
 
 	@Override
 	public void visit(InfectadoAlpha e) {
-		if(!e.estaQuieto()) {
+		if (!e.estaQuieto()) {
 			e.setVelocidad(0);
 			e.setImagen("Imagenes/congelado.png");
-		}else {
+		} else {
 			e.descongelar();
 		}
 	}
@@ -28,19 +28,19 @@ public class VisitorPremios extends Visitor {
 	@Override
 	public void visit(ProyectilJugador d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(ProyectilInfectado d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(Jugador d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

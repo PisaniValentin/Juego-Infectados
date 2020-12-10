@@ -1,26 +1,18 @@
 package Proyectiles;
 
 import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import GameObjects.GameObject;
 import Juego.GUI;
 import Juego.Mapa;
 import Juego.Punto;
-import Visitor.Visitor;
 
-public abstract class Proyectil extends GameObject{
-protected int rango,daño,velocidad,ancho,alto;
-protected JLabel imagen;
-protected Punto punto;	
-protected Mapa mapa;
-protected GUI frame;
-	
-	public Proyectil(int rango,int daño,Punto punto) {
+public abstract class Proyectil extends GameObject {
+	protected int rango, daño, velocidad;
+	protected GUI frame;
+
+	public Proyectil(int rango, int daño, Punto punto) {
 		this.rango = rango;
 		this.daño = daño;
 		this.punto = punto;
@@ -29,59 +21,27 @@ protected GUI frame;
 		ancho = icono_imagen.getIconWidth();
 		alto = icono_imagen.getIconHeight();
 	}
+
 	public abstract Rectangle getHitbox();
-	
+
 	public void remove() {
 		mapa.getGui().remove(this.getImagen());
 	}
-	
+
 	public void setFrame(GUI gui) {
 		this.frame = gui;
 	}
+
 	public GUI getFrame() {
 		return frame;
 	}
 
-	public void setMapa(Mapa mapa) {
-		this.mapa = mapa ;
-	}
-	public Mapa getMapa() {
-		return mapa ;
-	}
-	
 	public void mover() {
-		
+
 	}
-	
-	public int getAncho() {
-		return ancho;
-	}
-	
-	public int getAlto() {
-		return alto;
-	}
-	
-	public Punto getPunto() {
-		return punto;
-	}
-	
-	public void setPunto(Punto punto) {
-		this.punto = punto;
-	}
-	
-	public JLabel getImagen() {
-		return imagen;
-	}
-	
+
 	public int getRango() {
 		return rango;
 	}
 
-	@Override
-	public void accept(Visitor visitor) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 }

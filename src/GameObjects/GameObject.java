@@ -20,48 +20,56 @@ public abstract class GameObject {
 	protected Visitor visitor;
 
 	public abstract Rectangle getHitbox();
-	public abstract void accept(Visitor visitor);
+
 	public abstract Controlador getControlador();
+
 	public abstract void mover();
-	
+
+	public abstract void accept(Visitor visitor);
+
 	public Visitor getVisitor() {
-		return visitor ;
-	}	
-	
+		return visitor;
+	}
+
 	public void setMapa(Mapa mapa) {
-		this.mapa = mapa ;
+		this.mapa = mapa;
 	}
+
 	public Mapa getMapa() {
-		return mapa ;
+		return mapa;
 	}
-	
+
 	public int getAncho() {
-		return ancho ;
+		return ancho;
 	}
+
 	public int getAlto() {
-		return alto ;
-	}	
+		return alto;
+	}
+
 	public Punto getPunto() {
-		return punto ;
+		return punto;
 	}
+
 	public void setPunto(Punto p) {
-		punto = p ;
+		punto = p.clone();
 	}
-	
+
 	public void cambiarImagen(String rutaDibujo) {
 		ImageIcon icono_imagen = new ImageIcon(this.getClass().getClassLoader().getResource(rutaDibujo));
 		imagen = new JLabel(icono_imagen);
 		ancho = icono_imagen.getIconWidth();
 		alto = icono_imagen.getIconHeight();
 	}
-	
+
 	public JLabel getImagen() {
-		return imagen ;
+		return imagen;
 	}
+
 	public void setImagen(String ruta) {
 		ImageIcon dibujo = new ImageIcon(this.getClass().getClassLoader().getResource(ruta));
 		imagen.setIcon(dibujo);
-		imagen.setSize(ancho+2,alto+2);
+		imagen.setSize(ancho + 2, alto + 2);
 	}
 
 }

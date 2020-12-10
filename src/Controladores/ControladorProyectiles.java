@@ -9,40 +9,47 @@ import Juego.Punto;
 import Visitor.Visitor;
 
 public class ControladorProyectiles extends Controlador {
-protected int rango;
-	public ControladorProyectiles(GameObject objeto, Mapa map,int rango) {
-		super(objeto, map);
+
+	protected int rango;
+
+	public ControladorProyectiles(GameObject objeto, int rango) {
+		super(objeto);
 		this.rango = rango;
 	}
+
+//	public ControladorProyectiles(GameObject objeto, Mapa map, int rango) {
+//		super(objeto, map);
+//		this.rango = rango;
+//	}
 
 	public void run() {
 		mover();
 	}
-	
+
 	public void mover() {
-		boolean proyectil_landed=false;
-		Visitor visitor= objeto.getVisitor();
-		int contador=0;
+		boolean proyectil_landed = false;
+		Visitor visitor = objeto.getVisitor();
+		int contador = 0;
 		int posY = objeto.getPunto().getY();
-		List<GameObject> lista = mapa.getListaObjectos();
-		while(!proyectil_landed && contador<=rango) {
+		List<GameObject> lista = objeto.getMapa().getListaObjectos();
+		while (!proyectil_landed && contador <= rango) {
 			try {
 				List<GameObject> lista_aux = new LinkedList<GameObject>();
-				for(GameObject objeto : lista) {
+				for (GameObject objeto : lista) {
 					lista_aux.add(objeto);
 				}
 				ControladorProyectiles.sleep(50);
 				posY = posY - 10;
 				objeto.getPunto().setY(posY);
 				objeto.getImagen().setLocation(objeto.getPunto().getX(), objeto.getPunto().getY());
-				mapa.getGui().repaint();
+				objeto.getMapa().getGui().repaint();
 				contador++;
-				for(GameObject game_object : lista_aux) {
-					if(!mapa.getListaObjectos().isEmpty() ) {
-						if(proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
+				for (GameObject game_object : lista_aux) {
+					if (!objeto.getMapa().getListaObjectos().isEmpty()) {
+						if (proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
 							game_object.accept(visitor);
 							proyectil_landed = true;
-							mapa.getGui().repaint();
+							objeto.getMapa().getGui().repaint();
 						}
 					}
 				}
@@ -50,14 +57,14 @@ protected int rango;
 				e.printStackTrace();
 			}
 		}
-		mapa.getGui().remove(objeto.getImagen());
-		mapa.getListaObjectos().remove(objeto);
+		objeto.getMapa().getGui().remove(objeto.getImagen());
+		objeto.getMapa().getListaObjectos().remove(objeto);
 		proyectil = null;
 	}
 
 	@Override
 	public void setPunto(Punto punto) {
-		this.punto=punto;
+		this.punto = punto;
 	}
 
 	@Override
@@ -67,15 +74,13 @@ protected int rango;
 
 	@Override
 	public void congelar() {
-		
+
 	}
 
-	@Override
-	public void setLista(List<GameObject> listaObjectos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+//	@Override
+//	public void setLista(List<GameObject> listaObjectos) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }
