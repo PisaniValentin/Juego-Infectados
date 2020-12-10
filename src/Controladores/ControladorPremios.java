@@ -24,7 +24,7 @@ public class ControladorPremios extends Controlador {
 		boolean seAgarro = false;
 		while (y < 3000 && !seAgarro) {
 			try {
-				this.sleep(30);
+				Thread.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -33,7 +33,7 @@ public class ControladorPremios extends Controlador {
 			objeto.getImagen().setLocation(x, y);
 			objeto.getMapa().getGui().repaint();
 			if ((objeto.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !seAgarro)) {
-				objeto.accept(visitor);
+				objeto.getMapa().getJugador().accept(visitor);
 				seAgarro = true;
 			}
 		}

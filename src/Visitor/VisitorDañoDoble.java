@@ -18,45 +18,35 @@ public class VisitorDañoDoble extends Visitor
 	}
 
 	@Override
-	public void visit(Infectado e) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Infectado e) {}
+
+	@Override
+	public void visit(ProyectilJugador d) {}
+
+	@Override
+	public void visit(ProyectilInfectado d) {}
+
+	@Override
+	public void visit(Jugador d) 
+	{
+		int daño = d.getArma().getDaño();
+		d.getArma().setDaño(daño*2);
+		obj.getMapa().getGui().remove(obj.getImagen());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		d.getArma().setDaño(daño);
 	}
 
 	@Override
-	public void visit(ProyectilJugador d) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visit(Congelacion c) {}
 
 	@Override
-	public void visit(ProyectilInfectado d) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visit(DañoDoble dañoDoble) {}
 
 	@Override
-	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(Congelacion c) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(DañoDoble dañoDoble) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(Pocion pocion) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void visit(Pocion pocion) {}
 
 }

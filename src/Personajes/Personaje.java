@@ -6,6 +6,15 @@ public abstract class Personaje extends GameObject {
 	protected int rango, velocidad, cargaViral;
 	protected Arma arma;
 
+	protected Personaje(int cargaViral, int velocidad) {
+		this.cargaViral = cargaViral;
+		this.velocidad = velocidad;
+		imagen = null;
+		punto = null;
+		rango = 0;
+		this.arma = new Arma(0, 0);
+	}
+	
 	public abstract void atacar();
 
 	public abstract void interactuar();
@@ -18,15 +27,6 @@ public abstract class Personaje extends GameObject {
 
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
-	}
-
-	protected Personaje(int cargaViral, int velocidad) {
-		this.cargaViral = cargaViral;
-		this.velocidad = velocidad;
-		imagen = null;
-		punto = null;
-		rango = 0;
-		this.arma = new Arma(0, 0);
 	}
 
 	public int getDaño() {

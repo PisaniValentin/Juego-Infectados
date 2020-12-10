@@ -1,5 +1,6 @@
 package Visitor;
 
+import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
@@ -28,8 +29,6 @@ public class VisitorPremios extends Visitor {
 
 	@Override
 	public void visit(ProyectilJugador d) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -40,18 +39,19 @@ public class VisitorPremios extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
+		TemporizadorHielo tempo = new TemporizadorHielo(obj, obj.getMapa());
+		tempo.start();
+		obj.getMapa().getGui().remove(obj.getImagen());
 
 	}
 
 	@Override
 	public void visit(Congelacion c) {
-		c.congelar();
+		
 	}
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
-		dañoDoble.buff();
 	}
 
 	@Override

@@ -19,42 +19,12 @@ public class Mapa {
 	protected Personaje jugador;
 	protected List<GameObject> lista_objects;
 	protected Punto[] spawn;
-//	protected int cantidad_infectados;
 	protected Nivel nivel;
-
-//	private class Temporizador extends Thread {
-//		protected boolean continuar;
-//
-//		protected Temporizador() {
-//			this.continuar = false;
-//		}
-//
-//		public void run() {
-//			frenar();
-//		}
-//
-//		public boolean getEstado() {
-//			return continuar;
-//		}
-//
-//		public void frenar() {
-//			try {
-//				while (cantidad_infectados != 0) {
-//					this.sleep(10);
-//				}
-//				continuar = true;
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//	}
 
 	public Mapa(Juego juego, GUI gui) {
 		this.juego = juego;
 		this.gui = gui;
 		jugador = null;
-//		cantidad_infectados = 0;
 		lista_objects = new LinkedList<GameObject>();
 		spawn = new Punto[] { new Punto(30, 11), new Punto(80, 11), new Punto(130, 11), new Punto(180, 11) };
 		nivel = new Nivel();
@@ -87,28 +57,6 @@ public class Mapa {
 		System.out.println("GANASTE!!!");
 	}
 
-	//	public void restarContadorInfectados() {
-	//		cantidad_infectados--;
-	//	}
-
-//	public void iniciarOleadas(List<GameObject> lista) {
-//		for (GameObject objeto : lista) {
-//			objeto.getImagen().setLocation(objeto.getPunto().getX(), objeto.getPunto().getY());
-//			objeto.getImagen().setSize(44, 64);
-//			objeto.getImagen().setVisible(true);
-//			lista_objects.add(objeto);
-//			gui.add(objeto.getImagen());
-//			objeto.mover();
-//			cantidad_infectados++;
-//			gui.repaint();
-//			try {
-//				Thread.sleep(2500);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-
 	public void iniciarOleadas(Iterable<GameObject> lista) {
 		Random r = new Random();
 		for (GameObject objeto : lista) {
@@ -118,7 +66,6 @@ public class Mapa {
 			objeto.getImagen().setSize(44, 64);
 			objeto.getImagen().setVisible(true);
 			lista_objects.add(objeto);
-//			cantidad_infectados++;
 			gui.add(objeto.getImagen());
 			objeto.mover();
 			gui.repaint();
@@ -175,59 +122,32 @@ public class Mapa {
 	}
 
 	public void agregarHielo() {
-		// int x = spawn0.getX();
-		// int y = spawn0.getY();
-		// Punto punto = new Punto(60,379);
-		// Congelacion hielo = new Congelacion(punto,this);
-		// DañoDoble hielo = new DañoDoble(punto,this);
-		// hielo.getImagen().setLocation(60,379);
-		// hielo.getImagen().setSize(30, 30);
-		// lista_objects.add(hielo);
-		// gui.add(hielo.getImagen());
-		// gui.repaint();
 	}
 
 	public void agregarInfectadoTest() {
-//		Controlador c_infectado = new ControladorInfectados();
 		Punto punto = new Punto(80, 60);
 		Personaje zombie = new InfectadoBeta(punto, this);
 		Personaje zombie2 = new InfectadoAlpha(punto, this);
 		Personaje zombie3 = new InfectadoAlpha(punto, this);
-//		c_infectado.setPersonaje(zombie);
-//		c_infectado.setGUI(gui);
-//		c_infectado.setMapa(this);
-		// zombie.setMapa(this);
 		zombie.getImagen().setLocation(80, 60);
 		zombie.setPunto(spawn[2]);
-		// zombie2.setMapa(this);
 		zombie2.getImagen().setLocation(80, 60);
 		zombie2.setPunto(spawn[3]);
 		zombie.getImagen().setSize(44, 64);
 		zombie2.getImagen().setSize(44, 64);
-
-		// zombie3.setMapa(this);
 		zombie3.getImagen().setLocation(80, 60);
 		zombie3.setPunto(spawn[0]);
 		zombie3.getImagen().setSize(44, 64);
-
 		lista_objects.add(zombie);
 		lista_objects.add(zombie2);
 		lista_objects.add(zombie3);
 		gui.add(zombie.getImagen());
 		gui.add(zombie2.getImagen());
 		gui.add(zombie3.getImagen());
-//		c_infectado.start();
-
 		zombie.mover();
 		zombie2.mover();
 		zombie3.mover();
 
 		gui.repaint();
 	}
-
-//	public void remove(GameObject o) {
-//		gui.remove(o.getImagen());
-//		gui.repaint();
-//		lista_objects.remove(o);
-//	}
 }

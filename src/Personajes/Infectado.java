@@ -41,7 +41,7 @@ public class Infectado extends Personaje
 	public void recibirDaño(int daño) {
 		if (cargaViral > 0) {
 			this.cargaViral = cargaViral - daño;
-			if (cargaViral == 0) {
+			if (cargaViral <= 0) {
 				mapa.getGui().remove(this.getImagen());
 				mapa.getGui().repaint();
 				mapa.getListaObjectos().remove(this);

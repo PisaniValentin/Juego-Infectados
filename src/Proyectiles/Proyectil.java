@@ -1,11 +1,9 @@
 package Proyectiles;
 
-import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import GameObjects.GameObject;
 import Juego.GUI;
-import Juego.Mapa;
 import Juego.Punto;
 
 public abstract class Proyectil extends GameObject {
@@ -22,8 +20,6 @@ public abstract class Proyectil extends GameObject {
 		alto = icono_imagen.getIconHeight();
 	}
 
-	public abstract Rectangle getHitbox();
-
 	public void remove() {
 		mapa.getGui().remove(this.getImagen());
 	}
@@ -36,12 +32,15 @@ public abstract class Proyectil extends GameObject {
 		return frame;
 	}
 
-	public void mover() {
-
-	}
-
 	public int getRango() {
 		return rango;
+	}
+
+
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

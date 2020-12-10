@@ -27,7 +27,7 @@ public class TemporizadorHielo extends Thread {
 
 	public void iniciarTemporizador() {
 		try {
-			this.sleep(3000);
+			Thread.sleep(3000);
 			termino = true;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -45,11 +45,12 @@ public class TemporizadorHielo extends Thread {
 		mapa.getListaObjectos().remove(objeto);
 		mapa.getGui().remove(objeto.getImagen());
 		List<GameObject> lista_aux = new LinkedList<GameObject>();
-		for (GameObject objeto : mapa.getListaObjectos()) {
-			lista_aux.add(objeto);
+		for (GameObject obj: mapa.getListaObjectos()) {
+			lista_aux.add(obj);
 		}
-		for (GameObject objeto : lista_aux) {
-			objeto.accept(visitor);
+		for (GameObject obj : lista_aux) {
+			if(objeto.getMapa().getJugador() != obj)
+				obj.accept(visitor);
 		}
 		this.iniciarTemporizador();
 		while (recorro) {
@@ -57,8 +58,9 @@ public class TemporizadorHielo extends Thread {
 				recorro = false;
 			}
 		}
-		for (GameObject objeto : lista_aux) {
-			objeto.accept(visitor);
+		for (GameObject obj : lista_aux) {
+			if(objeto.getMapa().getJugador() != obj)
+				obj.accept(visitor);
 		}
 	}
 
