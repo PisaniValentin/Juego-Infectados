@@ -8,7 +8,6 @@ import Visitor.Visitor;
 import Visitor.VisitorDisparoInfectado;
 
 public class ProyectilInfectado extends Proyectil {
-	protected Visitor visitor;
 
 	public ProyectilInfectado(int rango, int daño, Punto punto) {
 		super(rango, daño, punto);
