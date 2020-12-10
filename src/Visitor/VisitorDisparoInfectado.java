@@ -37,8 +37,7 @@ public class VisitorDisparoInfectado extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
-		// TODO Auto-generated method stub
-
+		d.recibirDaño(daño);
 	}
 
 	@Override

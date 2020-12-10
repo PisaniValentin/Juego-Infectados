@@ -1,7 +1,15 @@
 package Controladores;
 
+import java.util.Random;
+
+import javax.swing.JLabel;
+
 import GameObjects.GameObject;
 import Juego.Punto;
+import ObjetosTemporales.Premio;
+import Proyectiles.Proyectil;
+import Proyectiles.ProyectilInfectado;
+import Proyectiles.ProyectilJugador;
 import Visitor.Visitor;
 
 public class ControladorInfectados extends Controlador {
@@ -31,6 +39,29 @@ public class ControladorInfectados extends Controlador {
 			personaje.getPunto().setY(y);
 			personaje.getImagen().setLocation(x, y);
 			objeto.getMapa().getGui().repaint();
+			
+			Punto pos = personaje.getPunto();
+			int rango = personaje.getRango();
+			int daño = personaje.getDaño();
+			Random r = new Random();
+			float chance = r.nextFloat();
+			if (chance < 0.02f) {
+				Punto pos_disparo = new Punto(pos.getX() + 10, pos.getY()+10);
+				int xp = pos_disparo.getX();
+				int yp = pos_disparo.getY();
+				Proyectil disparo = new ProyectilInfectado(rango, daño, pos_disparo);
+				disparo.setMapa(objeto.getMapa());
+				Controlador c_disparo = new ControladorProyectilInfectado(disparo, rango);
+				JLabel imagen = disparo.getImagen();
+				imagen.setLocation(xp, yp);
+				imagen.setSize(15, 15);
+				imagen.setVisible(true);
+				objeto.getMapa().getGui().add(disparo.getImagen());
+				objeto.getMapa().getGui().repaint();
+				c_disparo.setProyectil(disparo);
+				c_disparo.start();
+			}
+			
 			if ((personaje.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !golpeo)) {
 				objeto.getMapa().getJugador().accept(visitor);
 			}
@@ -43,13 +74,10 @@ public class ControladorInfectados extends Controlador {
 
 	@Override
 	public void setPunto(Punto punto) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public Punto getPunto() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

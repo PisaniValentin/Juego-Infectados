@@ -26,7 +26,7 @@ public class Infectado extends Personaje
 		mapa = map;
 		this.cambiarImagen("Imagenes/zombie.gif");
 		velocidad = 1;
-		arma = new Arma(30, 10);
+		arma = new Arma(10, 10);
 		visitor = new VisitorInfectado(this, arma.getDaño());
 		controlador = new ControladorInfectados(this);
 		controlador.setPersonaje(this);

@@ -2,6 +2,7 @@ package Proyectiles;
 
 import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Controladores.Controlador;
@@ -12,13 +13,17 @@ import Visitor.Visitor;
 import Visitor.VisitorDisparoPersonaje;
 
 public class ProyectilJugador extends Proyectil {
-//protected Mapa mapa;
+	
 	protected Rectangle hitbox_proyectil;
 
 	public ProyectilJugador(int rango, int daño, Punto punto) {
 		super(rango, daño, punto);
 		visitor = new VisitorDisparoPersonaje(this, daño);
 		hitbox_proyectil = new Rectangle(this.getPunto().getX(), this.getPunto().getY(), ancho, alto);
+		ImageIcon icono_imagen = new ImageIcon(this.getClass().getClassLoader().getResource("Imagenes/disparo.gif"));
+		imagen = new JLabel(icono_imagen);
+		ancho = icono_imagen.getIconWidth();
+		alto = icono_imagen.getIconHeight();
 	}
 
 	public Rectangle getHitbox() {
@@ -29,22 +34,9 @@ public class ProyectilJugador extends Proyectil {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
-
-//	public void remove() {
-//		mapa.getGui().remove(this.getImagen());
-//	}
-
 	@Override
 	public Controlador getControlador() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	public boolean hayColision(GameObject p) {
-//		Rectangle hitbox_proyectil = new Rectangle(this.getPunto().getX(),this.getPunto().getY(),ancho,alto);
-//		Rectangle hitbox_zombie = new Rectangle(p.getPunto().getX(),p.getPunto().getY(),p.getAncho(),p.getLargo());
-//		
-//		return hitbox_proyectil.intersects(hitbox_zombie);
-//	}
-
 }

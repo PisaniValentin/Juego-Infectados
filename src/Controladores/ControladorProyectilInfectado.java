@@ -4,49 +4,42 @@ import java.util.LinkedList;
 import java.util.List;
 
 import GameObjects.GameObject;
-import Juego.Mapa;
 import Juego.Punto;
+import Personajes.Personaje;
 import Visitor.Visitor;
 
-public class ControladorProyectiles extends Controlador {
+public class ControladorProyectilInfectado extends Controlador {
 
 	protected int rango;
-
-	public ControladorProyectiles(GameObject objeto, int rango) {
+	
+	public ControladorProyectilInfectado(GameObject objeto, int rango) {
 		super(objeto);
 		this.rango = rango;
 	}
-
+	
 	public void run() {
 		mover();
 	}
 
+	@Override
 	public void mover() {
 		boolean proyectil_landed = false;
 		Visitor visitor = objeto.getVisitor();
 		int contador = 0;
 		int posY = objeto.getPunto().getY();
-		List<GameObject> lista = objeto.getMapa().getListaObjectos();
+		Personaje jugador = objeto.getMapa().getJugador();
 		while (!proyectil_landed && contador <= rango) {
 			try {
-				List<GameObject> lista_aux = new LinkedList<GameObject>();
-				for (GameObject objeto : lista) {
-					lista_aux.add(objeto);
-				}
 				ControladorProyectiles.sleep(50);
-				posY = posY - 10;
+				posY = posY + 10;
 				objeto.getPunto().setY(posY);
 				objeto.getImagen().setLocation(objeto.getPunto().getX(), objeto.getPunto().getY());
 				objeto.getMapa().getGui().repaint();
 				contador++;
-				for (GameObject game_object : lista_aux) {
-					if (!objeto.getMapa().getListaObjectos().isEmpty()) {
-						if (proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
-							game_object.accept(visitor);
+				if (proyectil.getHitbox().intersects(jugador.getHitbox())) {
+							jugador.accept(visitor);
 							proyectil_landed = true;
 							objeto.getMapa().getGui().repaint();
-						}
-					}
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -59,16 +52,17 @@ public class ControladorProyectiles extends Controlador {
 
 	@Override
 	public void setPunto(Punto punto) {
-		this.punto = punto;
+
 	}
 
 	@Override
 	public Punto getPunto() {
-		return this.punto;
+		return null;
 	}
 
 	@Override
 	public void congelar() {
 
 	}
+
 }
