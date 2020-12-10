@@ -60,6 +60,7 @@ public class ControladorInfectados extends Controlador {
 			
 			if ((personaje.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !golpeo)) {
 				objeto.getMapa().getJugador().accept(visitor);
+				golpeo=!golpeo;
 			}
 
 		}
