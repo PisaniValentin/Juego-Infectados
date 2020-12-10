@@ -23,6 +23,12 @@ public class InfectadoAlpha extends Infectado {
 		visitor.visit(this);
 	}
 
-	
-
+	public void recibirDaño(int daño)
+	{
+		super.recibirDaño(daño);
+		if(cargaViral > 0 && cargaViral<= 20)
+		{
+			velocidad = velocidad*2;
+		}
+	}
 }
