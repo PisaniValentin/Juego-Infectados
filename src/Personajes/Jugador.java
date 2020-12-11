@@ -49,7 +49,6 @@ public class Jugador extends Personaje {
 			this.mapa.getJuego().finalizar(false);
 			this.mapa.getListaObjectos().clear();
 		}
-		System.out.println("el jugador recibio daño" + cargaViral);
 	}
 
 	@Override

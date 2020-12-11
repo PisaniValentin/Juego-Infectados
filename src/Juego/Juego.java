@@ -57,7 +57,6 @@ public class Juego {
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
 		mapa.agregarPersonaje(personaje);
-		System.out.println(mapa);
 		mapa.getGui().actualizarEtiquetaCargaViral(0);
 
 		mapa.setJugador(personaje);

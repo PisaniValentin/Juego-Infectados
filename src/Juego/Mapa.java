@@ -32,7 +32,6 @@ public class Mapa {
 
 	public void ponerOleada() {
 		while (nivel.tieneSiguiente()) {
-			System.out.println("|OLEADA|:" + nivel.getNumeroNivel());
 			gui.actualizarEtiquetaOleada(nivel.getNumeroNivel());
 			Iterable<GameObject> lista = nivel.getOleada1();
 			iniciarOleadas(lista);
@@ -48,7 +47,6 @@ public class Mapa {
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			System.out.println("oleada pt2");
 			lista = nivel.getOleada2();
 			iniciarOleadas(lista);
 			while (lista_objects.size() != 1) {

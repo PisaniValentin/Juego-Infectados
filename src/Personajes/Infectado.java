@@ -58,7 +58,6 @@ public class Infectado extends Personaje
 					premio.mover();
 				}
 			}
-			System.out.println("recibe daño el zombie, vida:" + cargaViral);
 		}
 	}
 

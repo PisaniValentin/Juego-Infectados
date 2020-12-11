@@ -49,7 +49,6 @@ public class VisitorPocion extends Visitor
 				d.setCargaViral(0);
 				obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
 		}
-		System.out.println("Vida = "+d.getCargaViral());
 	}
 
 	@Override
