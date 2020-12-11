@@ -46,6 +46,8 @@ public class Jugador extends Personaje {
 		if (cargaViral>=100) {
 			System.out.println("Perdio");
 			this.controlador.interrupt();
+			this.mapa.getJuego().finalizar(false);
+			this.mapa.getListaObjectos().clear();
 		}
 		System.out.println("el jugador recibio daño" + cargaViral);
 	}

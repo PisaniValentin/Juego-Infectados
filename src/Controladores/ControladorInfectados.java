@@ -17,12 +17,13 @@ public class ControladorInfectados extends Controlador {
 	}
 
 	public void run() {
+		
 		Visitor visitor = this.getPersonaje().getVisitor();
 		Punto pos_zombie = personaje.getPunto();
 		int x = pos_zombie.getX();
 		int y = pos_zombie.getY();
 		boolean golpeo = false;
-		while (personaje.getCargaViral() > 0) {
+		while (personaje.getCargaViral() > 0 && objeto.getMapa().getJugador().getCargaViral()<100) {
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {

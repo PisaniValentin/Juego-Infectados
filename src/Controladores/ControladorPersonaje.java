@@ -34,12 +34,14 @@ public class ControladorPersonaje extends Controlador implements KeyListener {
 		switch (tecla.getKeyCode()) {
 		case KeyEvent.VK_LEFT: {
 			int v = pos.getX() - velocidad;
-			pos.setX(v);
+			if(v>14)
+				pos.setX(v);
 			break;
 		}
 		case KeyEvent.VK_RIGHT: {
 			int v = pos.getX() + velocidad;
-			pos.setX(v);
+			if(v<230)
+				pos.setX(v);
 			break;
 		}
 		case KeyEvent.VK_UP: {

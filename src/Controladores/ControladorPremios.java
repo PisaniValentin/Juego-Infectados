@@ -11,7 +11,7 @@ public class ControladorPremios extends Controlador {
 	}
 
 	public void run() {
-		mover();
+			mover();
 	}
 
 	@Override

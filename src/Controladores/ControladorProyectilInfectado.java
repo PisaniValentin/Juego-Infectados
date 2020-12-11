@@ -18,7 +18,8 @@ public class ControladorProyectilInfectado extends Controlador {
 	}
 	
 	public void run() {
-		mover();
+		if(objeto.getMapa().getJugador().getCargaViral() < 100)
+			mover();
 	}
 
 	@Override
@@ -28,7 +29,7 @@ public class ControladorProyectilInfectado extends Controlador {
 		int contador = 0;
 		int posY = objeto.getPunto().getY();
 		Personaje jugador = objeto.getMapa().getJugador();
-		while (!proyectil_landed && contador <= rango) {
+		while (!proyectil_landed && contador <= rango && objeto.getMapa().getJugador().getCargaViral() < 100) {
 			try {
 				ControladorProyectiles.sleep(50);
 				posY = posY + 10;
@@ -48,6 +49,7 @@ public class ControladorProyectilInfectado extends Controlador {
 		objeto.getMapa().getGui().remove(objeto.getImagen());
 		objeto.getMapa().getListaObjectos().remove(objeto);
 		proyectil = null;
+		this.stop();
 	}
 
 	@Override

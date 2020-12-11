@@ -65,7 +65,9 @@ public class Mapa {
 				e1.printStackTrace();
 			}
 		}
-		System.out.println("GANASTE!!!");
+		if (jugador.getCargaViral() <=100) {
+			juego.finalizar(true);
+		}
 	}
 
 	public void iniciarOleadas(Iterable<GameObject> lista) {
