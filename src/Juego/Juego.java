@@ -38,16 +38,12 @@ public class Juego {
 			mapa.getListaObjectos().remove(gameObject);
 		}
 		if (!gano) {
-			opcion= JOptionPane.showConfirmDialog(gui, "HAS PERDIDO \n ¿Quiere volver a intentar?", "Lo lamento...", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(gui, "HAS PERDIDO", "Lo lamento...", JOptionPane.INFORMATION_MESSAGE);
 		}else {
-			opcion= JOptionPane.showConfirmDialog(gui, "¡GANASTE! \n ¿Quiere volver a intentar?", "Felicidades", JOptionPane.OK_OPTION);
+			JOptionPane.showMessageDialog(gui, "¡GANASTE!", "Felicidades", JOptionPane.OK_OPTION);
 		}
-		if(opcion == 0) {
-			init();
-		}else {
-			gui.dispatchEvent(new WindowEvent(gui, WindowEvent.WINDOW_CLOSING));
-			gui.dispose();
-		}
+		gui.dispatchEvent(new WindowEvent(gui, WindowEvent.WINDOW_CLOSING));
+		gui.dispose();
 	}
 	
 	private void init() {
