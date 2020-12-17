@@ -3,7 +3,6 @@ package Personajes;
 import java.awt.Rectangle;
 
 import Controladores.Controlador;
-import Controladores.ControladorPersonaje;
 import Visitor.Visitor;
 import Visitor.VisitorJugador;
 

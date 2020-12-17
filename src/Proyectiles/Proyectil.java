@@ -1,7 +1,5 @@
 package Proyectiles;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import GameObjects.GameObject;
 import Juego.GUI;
 import Juego.Punto;

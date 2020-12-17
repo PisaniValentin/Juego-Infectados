@@ -5,7 +5,7 @@ import java.util.List;
 
 import GameObjects.GameObject;
 
-public class Nivel {
+public abstract class Nivel {
 	protected FactoryInfectados fabrica;
 	protected int tamañoOleada;
 	protected int numeroNivel;

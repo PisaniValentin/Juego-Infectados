@@ -18,14 +18,12 @@ public class VisitorInfectado extends Visitor {
 	}
 
 	public VisitorInfectado(GameObject o, int daño) {
-		// TODO Auto-generated constructor stub
 		super(o);
 		this.daño = daño;
 	}
 
 	@Override
 	public void visit(Infectado e) {
-		// TODO Auto-generated method stub
 		e.descongelar();
 	}
 

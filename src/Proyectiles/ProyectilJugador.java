@@ -6,8 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Controladores.Controlador;
-import GameObjects.GameObject;
-import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
 import Visitor.VisitorDisparoPersonaje;

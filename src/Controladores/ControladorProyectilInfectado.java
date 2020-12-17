@@ -1,8 +1,5 @@
 package Controladores;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import GameObjects.GameObject;
 import Juego.Punto;
 import Personajes.Personaje;

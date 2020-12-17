@@ -1,13 +1,19 @@
 package Controladores;
 
-import Personajes.Infectado;
 import Personajes.Personaje;
 
 public class FabricaFacil implements FactoryInfectados {
+	
+	protected FactoryInfectados infectados;
+	
+	public FabricaFacil()
+	{
+		infectados = new FabricaInfectado();
+	}
 
 	@Override
 	public Personaje create() {
-		return new Infectado(null, null);
+		return infectados.create();
 	}
 
 }

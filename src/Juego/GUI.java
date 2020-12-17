@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class GUI extends JFrame {
+	private static final long serialVersionUID = 1L;
 	protected JPanel calle;
 	protected Mapa mapa;
 	private CustomPanel contentPane;

@@ -2,20 +2,25 @@ package Controladores;
 
 import java.util.Random;
 
-import Personajes.InfectadoAlpha;
-import Personajes.InfectadoBeta;
 import Personajes.Personaje;
 
 public class FabricaDificil implements FactoryInfectados {
 
+	protected FactoryInfectados alpha, beta;
+	
+	public FabricaDificil()
+	{
+		alpha = new FabricaAlpha();
+		beta = new FabricaBeta();
+	}
 	@Override
 	public Personaje create() {
 		Personaje toReturn = null;
 		Random r = new Random();
 		if (r.nextBoolean()) {
-			toReturn = new InfectadoAlpha(null, null);
+			toReturn = alpha.create();
 		} else {
-			toReturn = new InfectadoBeta(null, null);
+			toReturn = beta.create();
 		}
 		return toReturn;
 	}
