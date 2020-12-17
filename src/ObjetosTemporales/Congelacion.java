@@ -3,14 +3,14 @@ package ObjetosTemporales;
 import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
-import Visitor.VisitorPremios;
+import Visitor.VisitorCongelar;
 
 public class Congelacion extends Premio {
 
 	public Congelacion(Punto p, Mapa map) {
 		super(p,map);
 		this.cambiarImagen("Imagenes/hielo.png");
-		visitor = new VisitorPremios(this);
+		visitor = new VisitorCongelar(this);
 	}
 
 	@Override

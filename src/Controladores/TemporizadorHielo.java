@@ -49,8 +49,7 @@ public class TemporizadorHielo extends Thread {
 			lista_aux.add(obj);
 		}
 		for (GameObject obj : lista_aux) {
-			if(objeto.getMapa().getJugador() != obj)
-				obj.accept(visitor);
+			obj.accept(visitor);
 		}
 		this.iniciarTemporizador();
 		while (recorro) {
@@ -59,8 +58,7 @@ public class TemporizadorHielo extends Thread {
 			}
 		}
 		for (GameObject obj : lista_aux) {
-			if(objeto.getMapa().getJugador() != obj)
-				obj.accept(visitor);
+			obj.accept(visitor);
 		}
 	}
 

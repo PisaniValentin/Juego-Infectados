@@ -1,5 +1,6 @@
 package Visitor;
 
+import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
@@ -36,25 +37,30 @@ public class VisitorJugador extends Visitor {
 	@Override
 	public void visit(Jugador d) {
 		// TODO Auto-generated method stub
-
+		System.out.println("entre al visitor de jugador");
+	
 	}
 
 	@Override
 	public void visit(Congelacion c) {
 		// TODO Auto-generated method stub
-		System.out.println("entre al visitor de jugador");
+		System.out.println("congelacion");
+		TemporizadorHielo tempo = new TemporizadorHielo(c, c.getMapa());
+		tempo.start();
+		obj.getMapa().getGui().remove(c.getImagen());
 	}
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
-
-		// TODO Auto-generated method stub
-
+		System.out.println("dañodoble");
+		obj.accept(dañoDoble.getVisitor());
 	}
 
 	@Override
 	public void visit(Pocion pocion) {
 		// TODO Auto-generated method stub
+		System.out.println("pocion");
+		obj.accept(pocion.getVisitor());
 		
 	}
 

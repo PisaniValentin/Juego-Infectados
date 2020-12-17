@@ -49,7 +49,6 @@ public class ControladorProyectilInfectado extends Controlador {
 		objeto.getMapa().getGui().remove(objeto.getImagen());
 		objeto.getMapa().getListaObjectos().remove(objeto);
 		proyectil = null;
-		this.stop();
 	}
 
 	@Override

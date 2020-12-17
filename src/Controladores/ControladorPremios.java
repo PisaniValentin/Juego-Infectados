@@ -11,12 +11,12 @@ public class ControladorPremios extends Controlador {
 	}
 
 	public void run() {
-			mover();
+		mover();
 	}
 
 	@Override
 	public void mover() {
-		Visitor visitor = objeto.getVisitor();
+		Visitor visitor = objeto.getMapa().getJugador().getVisitor();
 		Punto pos = objeto.getPunto();
 		int x = pos.getX();
 		int y = pos.getY();
@@ -33,7 +33,7 @@ public class ControladorPremios extends Controlador {
 			objeto.getImagen().setLocation(x, y);
 			objeto.getMapa().getGui().repaint();
 			if ((objeto.getHitbox().intersects(objeto.getMapa().getJugador().getHitbox()) && !seAgarro)) {
-				objeto.getMapa().getJugador().accept(visitor);
+				objeto.accept(visitor);
 				seAgarro = true;
 			}
 		}
