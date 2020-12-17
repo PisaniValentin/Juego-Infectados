@@ -8,13 +8,6 @@ import GameObjects.GameObject;
 public abstract class Nivel {
 	protected FactoryInfectados fabrica;
 	protected int tamañoOleada;
-	protected int numeroNivel;
-
-	public Nivel() {
-		this.fabrica = new FabricaFacil();
-		numeroNivel = 1;
-		tamañoOleada = 6;
-	}
 
 	public Iterable<GameObject> getOleada1() {
 		List<GameObject> toReturn = new LinkedList<GameObject>();
@@ -31,31 +24,6 @@ public abstract class Nivel {
 		}
 		return toReturn;
 	}
-
-	public void cambiarNivel() {
-		numeroNivel++;
-		switch (numeroNivel) {
-		case 2:
-			fabrica = new FabricaMedia();
-			tamañoOleada = 8;
-			break;
-		case 3:
-			fabrica = new FabricaDificil();
-			tamañoOleada = 10;
-			break;
-		default:
-			fabrica = new FabricaFacil();
-			tamañoOleada = 6;
-			numeroNivel = 4;
-			break;
-		}
-	}
-
-	public int getNumeroNivel() {
-		return numeroNivel;
-	}
-
-	public boolean tieneSiguiente() {
-		return numeroNivel <= 3;
-	}
+	
+	public abstract Nivel siguienteNivel();
 }

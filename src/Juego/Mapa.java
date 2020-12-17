@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 
 import Controladores.Nivel;
+import Controladores.NivelUno;
 import GameObjects.GameObject;
 import Personajes.InfectadoAlpha;
 import Personajes.InfectadoBeta;
@@ -20,6 +21,7 @@ public class Mapa {
 	protected List<GameObject> lista_objects;
 	protected Punto[] spawn;
 	protected Nivel nivel;
+	protected final int cantNiveles = 3;
 
 	public Mapa(Juego juego, GUI gui) {
 		this.juego = juego;
@@ -27,12 +29,12 @@ public class Mapa {
 		jugador = null;
 		lista_objects = new LinkedList<GameObject>();
 		spawn = new Punto[] { new Punto(30, 11), new Punto(80, 11), new Punto(130, 11), new Punto(180, 11) };
-		nivel = new Nivel();
+		nivel = new NivelUno();
 	}
 
 	public void ponerOleada() {
-		while (nivel.tieneSiguiente()) {
-			gui.actualizarEtiquetaOleada(nivel.getNumeroNivel());
+		for(int i = 1; i<=cantNiveles;i++){
+			gui.actualizarEtiquetaOleada(i);
 			Iterable<GameObject> lista = nivel.getOleada1();
 			iniciarOleadas(lista);
 			while (lista_objects.size() != 1) {
@@ -56,7 +58,7 @@ public class Mapa {
 					e.printStackTrace();
 				}
 			}
-			nivel.cambiarNivel();
+			nivel = nivel.siguienteNivel();
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e1) {
@@ -126,13 +128,6 @@ public class Mapa {
 
 	public void agregarDisparo(Proyectil proyectil) {
 		lista_objects.add(proyectil);
-	}
-
-	public void agregarInfectado(InfectadoAlpha infectado, Punto spawn) {
-
-	}
-
-	public void agregarHielo() {
 	}
 
 	public void agregarInfectadoTest() {
