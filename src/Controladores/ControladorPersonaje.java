@@ -3,7 +3,6 @@ package Controladores;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JLabel;
-import GameObjects.GameObject;
 import Juego.Punto;
 import Personajes.Jugador;
 import Proyectiles.Proyectil;

@@ -2,17 +2,11 @@ package Juego;
 
 import java.util.List;
 import java.awt.event.WindowEvent;
-import java.util.Iterator;
 import java.util.LinkedList;
-
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import Controladores.Controlador;
 import Controladores.ControladorPersonaje;
 import GameObjects.GameObject;
 import Personajes.Jugador;
-import Personajes.Personaje;
 
 public class Juego {
 	protected GUI gui;
@@ -28,7 +22,6 @@ public class Juego {
 	}
 	
 	public void finalizar(boolean gano) {
-		int opcion;
 		List<GameObject> aux = new LinkedList<GameObject>();
 		for(GameObject o : mapa.getListaObjectos()) {
 			aux.add(o);

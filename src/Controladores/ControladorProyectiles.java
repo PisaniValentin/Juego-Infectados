@@ -2,9 +2,7 @@ package Controladores;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import GameObjects.GameObject;
-import Juego.Mapa;
 import Juego.Punto;
 import Visitor.Visitor;
 
