@@ -1,4 +1,6 @@
-package Controladores;
+package Juego;
+
+import factory.FabricaFacil;
 
 public class NivelUno extends Nivel{
 

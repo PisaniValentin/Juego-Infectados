@@ -1,9 +1,10 @@
-package Controladores;
+package Juego;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import GameObjects.GameObject;
+import factory.FactoryInfectados;
 
 public abstract class Nivel {
 	protected FactoryInfectados fabrica;

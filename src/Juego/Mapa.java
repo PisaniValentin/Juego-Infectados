@@ -6,8 +6,6 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Controladores.Nivel;
-import Controladores.NivelUno;
 import GameObjects.GameObject;
 import Personajes.InfectadoAlpha;
 import Personajes.InfectadoBeta;

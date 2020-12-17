@@ -5,13 +5,13 @@ import java.util.Random;
 
 import Controladores.Controlador;
 import Controladores.ControladorInfectados;
-import Controladores.FabricaPremio;
-import Controladores.FabricaPremioRandom;
 import Juego.Mapa;
 import Juego.Punto;
 import ObjetosTemporales.Premio;
 import Visitor.Visitor;
 import Visitor.VisitorInfectado;
+import factory.FabricaPremio;
+import factory.FabricaPremioRandom;
 
 public class Infectado extends Personaje
 {

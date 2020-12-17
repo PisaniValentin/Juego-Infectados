@@ -1,4 +1,4 @@
-package Controladores;
+package factory;
 
 import Personajes.Infectado;
 import Personajes.Personaje;

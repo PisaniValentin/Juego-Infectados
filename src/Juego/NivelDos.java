@@ -1,4 +1,6 @@
-package Controladores;
+package Juego;
+
+import factory.FabricaMedia;
 
 public class NivelDos extends Nivel{
 

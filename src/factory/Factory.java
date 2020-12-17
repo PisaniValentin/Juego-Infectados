@@ -1,4 +1,4 @@
-package Controladores;
+package factory;
 
 import Juego.Mapa;
 import Juego.Punto;
