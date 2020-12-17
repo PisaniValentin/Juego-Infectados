@@ -5,28 +5,17 @@ import java.awt.event.KeyListener;
 import javax.swing.JLabel;
 import GameObjects.GameObject;
 import Juego.Punto;
+import Personajes.Jugador;
 import Proyectiles.Proyectil;
 import Proyectiles.ProyectilJugador;
 
-public class ControladorPersonaje extends Controlador implements KeyListener {
-
-	public ControladorPersonaje(GameObject objeto) {
-		super(objeto);
+public class ControladorPersonaje implements KeyListener {
+	protected Jugador personaje;
+	
+	public ControladorPersonaje(Jugador jugador) {
+		this.personaje= jugador;
 	}
-
-	@Override
-	public void mover() {}
-
-	@Override
-	public void setPunto(Punto punto) {
-		this.punto = punto;
-	}
-
-	@Override
-	public Punto getPunto() {
-		return punto;
-	}
-
+	
 	@Override
 	public void keyPressed(KeyEvent tecla) {
 		Punto pos = personaje.getPunto();
@@ -64,14 +53,14 @@ public class ControladorPersonaje extends Controlador implements KeyListener {
 			int x = pos_disparo.getX();
 			int y = pos_disparo.getY();
 			Proyectil disparo = new ProyectilJugador(rango, daño, pos_disparo);
-			disparo.setMapa(objeto.getMapa());
+			disparo.setMapa(personaje.getMapa());
 			Controlador c_disparo = new ControladorProyectiles(disparo, personaje.getRango());
 			JLabel imagen = disparo.getImagen();
 			imagen.setLocation(x, y);
 			imagen.setSize(15, 15);
 			imagen.setVisible(true);
-			objeto.getMapa().getGui().add(disparo.getImagen());
-			objeto.getMapa().getGui().repaint();
+			personaje.getMapa().getGui().add(disparo.getImagen());
+			personaje.getMapa().getGui().repaint();
 			c_disparo.setProyectil(disparo);
 			c_disparo.start();
 			break;
@@ -79,9 +68,6 @@ public class ControladorPersonaje extends Controlador implements KeyListener {
 		}
 
 	}
-
-	@Override
-	public void congelar() {}
 
 	@Override
 	public void keyTyped(KeyEvent e) {}

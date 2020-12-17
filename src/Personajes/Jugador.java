@@ -8,14 +8,11 @@ import Visitor.Visitor;
 import Visitor.VisitorJugador;
 
 public class Jugador extends Personaje {
-	protected ControladorPersonaje controlador;
 	protected boolean buff;
 
 	public Jugador() {
 		super(0, 8);
 		visitor = new VisitorJugador(this);
-		controlador = new ControladorPersonaje(this);
-		controlador.setPersonaje(this);
 		arma.setRango(300);
 		arma.setDaño(20);
 		cambiarImagen("Imagenes/jugador.png");
@@ -36,16 +33,11 @@ public class Jugador extends Personaje {
 		this.buff = buff;
 	}
 
-	public Controlador getControlador() {
-		return controlador;
-	}
-
 	public void recibirDaño(int daño) {
 		cargaViral = cargaViral + daño;
 		mapa.getGui().actualizarEtiquetaCargaViral(cargaViral);
 		if (cargaViral>=100) {
 			System.out.println("Perdio");
-			this.controlador.interrupt();
 			this.mapa.getJuego().finalizar(false);
 			this.mapa.getListaObjectos().clear();
 		}
@@ -84,5 +76,8 @@ public class Jugador extends Personaje {
 		// TODO Auto-generated method stub
 		return velocidad;
 	}
+
+	@Override
+	public Controlador getControlador() {return null;}
 
 }

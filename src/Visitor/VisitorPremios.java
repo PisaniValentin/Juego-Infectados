@@ -39,6 +39,7 @@ public class VisitorPremios extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
+		System.out.println("congelar visita a jugador");
 		TemporizadorHielo tempo = new TemporizadorHielo(obj, obj.getMapa());
 		tempo.start();
 		obj.getMapa().getGui().remove(obj.getImagen());

@@ -52,7 +52,7 @@ public class Juego {
 	
 	private void init() {
 		// crear personaje
-		Personaje personaje = new Jugador();
+		Jugador personaje = new Jugador();
 		Punto punto = new Punto(113, 400);
 		personaje.setPunto(punto);
 		personaje.setMapa(mapa);
@@ -60,9 +60,8 @@ public class Juego {
 		mapa.getGui().actualizarEtiquetaCargaViral(0);
 
 		mapa.setJugador(personaje);
-		Controlador c_jugador = new ControladorPersonaje(personaje);
-		c_jugador.setPersonaje(personaje);
-		gui.addKeyListener((ControladorPersonaje) c_jugador);
+		ControladorPersonaje c_jugador = new ControladorPersonaje(personaje);
+		gui.addKeyListener(c_jugador);
 		mapa.ponerOleada();
 	}
 }
