@@ -36,7 +36,6 @@ public class Jugador extends Personaje {
 		cargaViral = cargaViral + daño;
 		mapa.getGui().actualizarEtiquetaCargaViral(cargaViral);
 		if (cargaViral>=100) {
-			System.out.println("Perdio");
 			this.mapa.getJuego().finalizar(false);
 			this.mapa.getListaObjectos().clear();
 		}

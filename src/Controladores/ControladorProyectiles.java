@@ -25,14 +25,15 @@ public class ControladorProyectiles extends Controlador {
 		int contador = 0;
 		int posY = objeto.getPunto().getY();
 		List<GameObject> lista = objeto.getMapa().getListaObjectos();
+		// esto hay que sacarlo afuera del while (!proyectil_landed && contador <= rango) {
+		List<GameObject> lista_aux = new LinkedList<GameObject>();
 		while (!proyectil_landed && contador <= rango) {
 			try {
-				// esto hay que sacarlo afuera del while (!proyectil_landed && contador <= rango) {
-				List<GameObject> lista_aux = new LinkedList<GameObject>();
-				for (GameObject objeto : lista) {
-					lista_aux.add(objeto);
-				}
 				ControladorProyectiles.sleep(50);
+				for (GameObject objeto : lista) {
+					if(!lista_aux.contains(objeto))
+						lista_aux.add(objeto);
+				}
 				posY = posY - 10;
 				objeto.getPunto().setY(posY);
 				objeto.getImagen().setLocation(objeto.getPunto().getX(), objeto.getPunto().getY());
@@ -41,7 +42,7 @@ public class ControladorProyectiles extends Controlador {
 				for (GameObject game_object : lista_aux) {
 					//y en este if comprobar que game_object este vivo
 					//asi cuando muere se actualiza mas rapido que la lista
-					if (!objeto.getMapa().getListaObjectos().isEmpty()) {
+					if (objeto.getMapa().getListaObjectos().contains(game_object)) {
 						if (proyectil.getHitbox().intersects(game_object.getHitbox()) && game_object != objeto) {
 							game_object.accept(visitor);
 							proyectil_landed = true;
