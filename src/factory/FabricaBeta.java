@@ -7,7 +7,7 @@ public class FabricaBeta implements FactoryInfectados {
 
 	@Override
 	public Personaje create() {
-		return new InfectadoBeta(null,null);
+		return new InfectadoBeta(null, null);
 	}
 
 }

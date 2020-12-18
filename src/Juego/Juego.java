@@ -20,10 +20,10 @@ public class Juego {
 
 		init();
 	}
-	
+
 	public void finalizar(boolean gano) {
 		List<GameObject> aux = new LinkedList<GameObject>();
-		for(GameObject o : mapa.getListaObjectos()) {
+		for (GameObject o : mapa.getListaObjectos()) {
 			aux.add(o);
 		}
 		for (GameObject gameObject : aux) {
@@ -32,13 +32,13 @@ public class Juego {
 		}
 		if (!gano) {
 			JOptionPane.showMessageDialog(gui, "HAS PERDIDO", "Lo lamento...", JOptionPane.INFORMATION_MESSAGE);
-		}else {
+		} else {
 			JOptionPane.showMessageDialog(gui, "¡GANASTE!", "Felicidades", JOptionPane.OK_OPTION);
 		}
 		gui.dispatchEvent(new WindowEvent(gui, WindowEvent.WINDOW_CLOSING));
 		gui.dispose();
 	}
-	
+
 	private void init() {
 		// crear personaje
 		Jugador personaje = new Jugador();

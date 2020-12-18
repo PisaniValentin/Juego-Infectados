@@ -9,8 +9,7 @@ import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
-public class VisitorPocion extends Visitor
-{
+public class VisitorPocion extends Visitor {
 
 	public VisitorPocion(GameObject o) {
 		super(o);
@@ -19,19 +18,19 @@ public class VisitorPocion extends Visitor
 	@Override
 	public void visit(Infectado e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(ProyectilJugador d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(ProyectilInfectado d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -39,34 +38,32 @@ public class VisitorPocion extends Visitor
 
 		obj.getMapa().getGui().remove(obj.getImagen());
 		int Sanacion = d.getCargaViral();
-		if(Sanacion >0)
-		{
-			if(Sanacion >=20) {
-				d.setCargaViral(Sanacion -20);
+		if (Sanacion > 0) {
+			if (Sanacion >= 20) {
+				d.setCargaViral(Sanacion - 20);
 				obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
-			}
-			else
+			} else
 				d.setCargaViral(0);
-				obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
+			obj.getMapa().getGui().actualizarEtiquetaCargaViral(d.getCargaViral());
 		}
 	}
 
 	@Override
 	public void visit(Congelacion c) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(DañoDoble dañoDoble) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void visit(Pocion pocion) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

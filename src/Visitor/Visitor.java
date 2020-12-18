@@ -27,7 +27,7 @@ public abstract class Visitor {
 	public abstract void visit(Congelacion c);
 
 	public abstract void visit(DañoDoble dañoDoble);
-	
+
 	public abstract void visit(Pocion pocion);
 
 }

@@ -7,19 +7,18 @@ import Personajes.Personaje;
 public class FabricaMedia implements FactoryInfectados {
 
 	protected FactoryInfectados infectado, alpha, beta;
-	
-	public FabricaMedia()
-	{
+
+	public FabricaMedia() {
 		infectado = new FabricaInfectado();
 		alpha = new FabricaAlpha();
 		beta = new FabricaBeta();
 	}
+
 	@Override
 	public Personaje create() {
 		Random r = new Random();
 		Personaje toReturn = null;
-		switch(r.nextInt(3))
-		{
+		switch (r.nextInt(3)) {
 		case 0: {
 			toReturn = infectado.create();
 			break;

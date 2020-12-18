@@ -14,7 +14,7 @@ public abstract class Personaje extends GameObject {
 		rango = 0;
 		this.arma = new Arma(0, 0);
 	}
-	
+
 	public abstract void atacar();
 
 	public abstract void interactuar();
@@ -48,9 +48,8 @@ public abstract class Personaje extends GameObject {
 	public int getCargaViral() {
 		return cargaViral;
 	}
-	
-	public void setCargaViral(int vida)
-	{
+
+	public void setCargaViral(int vida) {
 		cargaViral = vida;
 	}
 }

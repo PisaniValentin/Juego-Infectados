@@ -25,12 +25,11 @@ public class ControladorProyectiles extends Controlador {
 		int contador = 0;
 		int posY = objeto.getPunto().getY();
 		List<GameObject> lista = objeto.getMapa().getListaObjectos();
-		List<GameObject> lista_aux = new LinkedList<GameObject>();
 		while (!proyectil_landed && contador <= rango) {
 			try {
+				List<GameObject> lista_aux = new LinkedList<GameObject>();
 				for (GameObject objeto : lista) {
-					if(!lista_aux.contains(objeto))
-						lista_aux.add(objeto);
+					lista_aux.add(objeto);
 				}
 				ControladorProyectiles.sleep(50);
 				posY = posY - 10;

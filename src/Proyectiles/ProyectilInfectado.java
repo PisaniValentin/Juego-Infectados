@@ -13,7 +13,7 @@ import Visitor.VisitorDisparoInfectado;
 public class ProyectilInfectado extends Proyectil {
 
 	protected Rectangle hitbox_proyectil;
-	
+
 	public ProyectilInfectado(int rango, int daño, Punto punto) {
 		super(rango, daño, punto);
 		visitor = new VisitorDisparoInfectado(this, daño);

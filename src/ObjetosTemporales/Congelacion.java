@@ -8,7 +8,7 @@ import Visitor.VisitorCongelar;
 public class Congelacion extends Premio {
 
 	public Congelacion(Punto p, Mapa map) {
-		super(p,map);
+		super(p, map);
 		this.cambiarImagen("Imagenes/hielo.png");
 		visitor = new VisitorCongelar(this);
 	}

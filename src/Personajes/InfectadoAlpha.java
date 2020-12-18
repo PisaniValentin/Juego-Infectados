@@ -7,7 +7,7 @@ import Visitor.Visitor;
 public class InfectadoAlpha extends Infectado {
 
 	public InfectadoAlpha(Punto p, Mapa map) {
-		super(p,map);
+		super(p, map);
 		this.cambiarImagen("Imagenes/InfectadoAlpha.gif");
 		velocidad = 2;
 		arma = new Arma(30, 30);
@@ -17,18 +17,16 @@ public class InfectadoAlpha extends Infectado {
 		velocidad = 2;
 		this.setImagen("Imagenes/InfectadoAlpha.gif");
 	}
-	
+
 	@Override
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
 
-	public void recibirDaño(int daño)
-	{
+	public void recibirDaño(int daño) {
 		super.recibirDaño(daño);
-		if(cargaViral > 0 && cargaViral<= 20)
-		{
-			velocidad = velocidad*2;
+		if (cargaViral > 0 && cargaViral <= 20) {
+			velocidad = velocidad * 2;
 		}
 	}
 }

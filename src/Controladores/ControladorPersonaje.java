@@ -10,11 +10,11 @@ import Proyectiles.ProyectilJugador;
 
 public class ControladorPersonaje implements KeyListener {
 	protected Jugador personaje;
-	
+
 	public ControladorPersonaje(Jugador jugador) {
-		this.personaje= jugador;
+		this.personaje = jugador;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent tecla) {
 		Punto pos = personaje.getPunto();
@@ -22,13 +22,13 @@ public class ControladorPersonaje implements KeyListener {
 		switch (tecla.getKeyCode()) {
 		case KeyEvent.VK_LEFT: {
 			int v = pos.getX() - velocidad;
-			if(v>14)
+			if (v > 14)
 				pos.setX(v);
 			break;
 		}
 		case KeyEvent.VK_RIGHT: {
 			int v = pos.getX() + velocidad;
-			if(v<230)
+			if (v < 230)
 				pos.setX(v);
 			break;
 		}
@@ -69,6 +69,7 @@ public class ControladorPersonaje implements KeyListener {
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 }

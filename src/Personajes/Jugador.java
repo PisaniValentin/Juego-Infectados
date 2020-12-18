@@ -17,7 +17,7 @@ public class Jugador extends Personaje {
 		cambiarImagen("Imagenes/jugador.png");
 		velocidad = 6;
 		buff = false;
-		
+
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class Jugador extends Personaje {
 	public void recibirDaño(int daño) {
 		cargaViral = cargaViral + daño;
 		mapa.getGui().actualizarEtiquetaCargaViral(cargaViral);
-		if (cargaViral>=100) {
+		if (cargaViral >= 100) {
 			this.mapa.getJuego().finalizar(false);
 			this.mapa.getListaObjectos().clear();
 		}
@@ -76,6 +76,8 @@ public class Jugador extends Personaje {
 	}
 
 	@Override
-	public Controlador getControlador() {return null;}
+	public Controlador getControlador() {
+		return null;
+	}
 
 }

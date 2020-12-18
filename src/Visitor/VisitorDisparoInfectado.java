@@ -55,7 +55,7 @@ public class VisitorDisparoInfectado extends Visitor {
 	@Override
 	public void visit(Pocion pocion) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

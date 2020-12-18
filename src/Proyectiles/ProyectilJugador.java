@@ -11,7 +11,7 @@ import Visitor.Visitor;
 import Visitor.VisitorDisparoPersonaje;
 
 public class ProyectilJugador extends Proyectil {
-	
+
 	protected Rectangle hitbox_proyectil;
 
 	public ProyectilJugador(int rango, int daño, Punto punto) {
@@ -32,6 +32,7 @@ public class ProyectilJugador extends Proyectil {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
 	@Override
 	public Controlador getControlador() {
 		// TODO Auto-generated method stub

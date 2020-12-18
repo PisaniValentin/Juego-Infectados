@@ -7,12 +7,12 @@ import Personajes.Personaje;
 public class FabricaDificil implements FactoryInfectados {
 
 	protected FactoryInfectados alpha, beta;
-	
-	public FabricaDificil()
-	{
+
+	public FabricaDificil() {
 		alpha = new FabricaAlpha();
 		beta = new FabricaBeta();
 	}
+
 	@Override
 	public Personaje create() {
 		Personaje toReturn = null;

@@ -5,10 +5,9 @@ import Juego.Punto;
 import Visitor.Visitor;
 import Visitor.VisitorPocion;
 
-public class Pocion extends Premio
-{
+public class Pocion extends Premio {
 	public Pocion(Punto p, Mapa map) {
-		super(p,map);
+		super(p, map);
 		this.cambiarImagen("Imagenes/pocion.png");
 		visitor = new VisitorPocion(this);
 	}

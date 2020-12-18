@@ -2,7 +2,7 @@ package Juego;
 
 import factory.FabricaMedia;
 
-public class NivelDos extends Nivel{
+public class NivelDos extends Nivel {
 
 	public NivelDos() {
 		fabrica = new FabricaMedia();

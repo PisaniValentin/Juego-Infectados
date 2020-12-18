@@ -25,6 +25,6 @@ public abstract class Nivel {
 		}
 		return toReturn;
 	}
-	
+
 	public abstract Nivel siguienteNivel();
 }

@@ -8,14 +8,14 @@ import Visitor.Visitor;
 public class ControladorProyectilInfectado extends Controlador {
 
 	protected int rango;
-	
+
 	public ControladorProyectilInfectado(GameObject objeto, int rango) {
 		super(objeto);
 		this.rango = rango;
 	}
-	
+
 	public void run() {
-		if(objeto.getMapa().getJugador().getCargaViral() < 100)
+		if (objeto.getMapa().getJugador().getCargaViral() < 100)
 			mover();
 	}
 
@@ -35,9 +35,9 @@ public class ControladorProyectilInfectado extends Controlador {
 				objeto.getMapa().getGui().repaint();
 				contador++;
 				if (proyectil.getHitbox().intersects(jugador.getHitbox())) {
-							jugador.accept(visitor);
-							proyectil_landed = true;
-							objeto.getMapa().getGui().repaint();
+					jugador.accept(visitor);
+					proyectil_landed = true;
+					objeto.getMapa().getGui().repaint();
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();

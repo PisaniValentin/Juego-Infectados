@@ -8,7 +8,7 @@ import Visitor.VisitorDañoDoble;
 public class DañoDoble extends Premio {
 
 	public DañoDoble(Punto p, Mapa map) {
-		super(p,map);
+		super(p, map);
 		this.cambiarImagen("Imagenes/danodoble.png");
 		visitor = new VisitorDañoDoble(this);
 	}

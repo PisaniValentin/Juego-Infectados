@@ -13,15 +13,13 @@ import Visitor.VisitorInfectado;
 import factory.FabricaPremio;
 import factory.FabricaPremioRandom;
 
-public class Infectado extends Personaje
-{
+public class Infectado extends Personaje {
 	protected Rectangle hitbox_zombie;
 	protected Controlador controlador;
 	protected FabricaPremio fabrica;
 
-	public Infectado(Punto p, Mapa map)
-	{
-		super(100,10);
+	public Infectado(Punto p, Mapa map) {
+		super(100, 10);
 		this.punto = p;
 		mapa = map;
 		this.cambiarImagen("Imagenes/zombie.gif");
@@ -94,6 +92,7 @@ public class Infectado extends Personaje
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
 	public void setVelocidad(int i) {
 		velocidad = i;
 
@@ -106,6 +105,5 @@ public class Infectado extends Personaje
 	public boolean estaQuieto() {
 		return velocidad == 0;
 	}
-
 
 }

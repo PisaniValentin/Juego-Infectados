@@ -37,7 +37,7 @@ public class ControladorPremios extends Controlador {
 				seAgarro = true;
 			}
 		}
-		if(!seAgarro)
+		if (!seAgarro)
 			objeto.getMapa().getGui().remove(objeto.getImagen());
 	}
 
@@ -52,6 +52,7 @@ public class ControladorPremios extends Controlador {
 	}
 
 	@Override
-	public void congelar() {}
+	public void congelar() {
+	}
 
 }

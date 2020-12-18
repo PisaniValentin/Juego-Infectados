@@ -45,7 +45,7 @@ public class TemporizadorHielo extends Thread {
 		mapa.getListaObjectos().remove(objeto);
 		mapa.getGui().remove(objeto.getImagen());
 		List<GameObject> lista_aux = new LinkedList<GameObject>();
-		for (GameObject obj: mapa.getListaObjectos()) {
+		for (GameObject obj : mapa.getListaObjectos()) {
 			lista_aux.add(obj);
 		}
 		for (GameObject obj : lista_aux) {

@@ -9,8 +9,7 @@ import Personajes.Jugador;
 import Proyectiles.ProyectilInfectado;
 import Proyectiles.ProyectilJugador;
 
-public class VisitorDañoDoble extends Visitor
-{
+public class VisitorDañoDoble extends Visitor {
 
 	public VisitorDañoDoble(GameObject o) {
 		super(o);
@@ -18,19 +17,21 @@ public class VisitorDañoDoble extends Visitor
 	}
 
 	@Override
-	public void visit(Infectado e) {}
+	public void visit(Infectado e) {
+	}
 
 	@Override
-	public void visit(ProyectilJugador d) {}
+	public void visit(ProyectilJugador d) {
+	}
 
 	@Override
-	public void visit(ProyectilInfectado d) {}
+	public void visit(ProyectilInfectado d) {
+	}
 
 	@Override
-	public void visit(Jugador d) 
-	{
+	public void visit(Jugador d) {
 		int daño = d.getArma().getDaño();
-		d.getArma().setDaño(daño*2);
+		d.getArma().setDaño(daño * 2);
 		obj.getMapa().getGui().remove(obj.getImagen());
 		try {
 			Thread.sleep(2000);
@@ -41,12 +42,15 @@ public class VisitorDañoDoble extends Visitor
 	}
 
 	@Override
-	public void visit(Congelacion c) {}
+	public void visit(Congelacion c) {
+	}
 
 	@Override
-	public void visit(DañoDoble dañoDoble) {}
+	public void visit(DañoDoble dañoDoble) {
+	}
 
 	@Override
-	public void visit(Pocion pocion) {}
+	public void visit(Pocion pocion) {
+	}
 
 }

@@ -33,7 +33,7 @@ public class Mapa {
 	}
 
 	public void ponerOleada() {
-		for(int i = 1; i<=cantNiveles;i++){
+		for (int i = 1; i <= cantNiveles; i++) {
 			gui.actualizarEtiquetaOleada(i);
 			Iterable<GameObject> lista = nivel.getOleada1();
 			iniciarOleadas(lista);
@@ -65,7 +65,7 @@ public class Mapa {
 				e1.printStackTrace();
 			}
 		}
-		if (jugador.getCargaViral() <=100) {
+		if (jugador.getCargaViral() <= 100) {
 			juego.finalizar(true);
 		}
 	}
@@ -156,10 +156,10 @@ public class Mapa {
 
 		gui.repaint();
 	}
-	
+
 	public void crearTemporizadorHielo(Congelacion c) {
 		TemporizadorHielo tempo = new TemporizadorHielo(c, c.getMapa());
 		tempo.start();
 		this.getGui().remove(c.getImagen());
-	} 
+	}
 }

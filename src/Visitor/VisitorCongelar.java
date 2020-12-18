@@ -42,7 +42,7 @@ public class VisitorCongelar extends Visitor {
 
 	@Override
 	public void visit(Congelacion c) {
-		
+
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class VisitorCongelar extends Visitor {
 	@Override
 	public void visit(Pocion pocion) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

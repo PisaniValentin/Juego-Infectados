@@ -34,7 +34,7 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(Jugador d) {
-	
+
 	}
 
 	@Override

@@ -30,11 +30,10 @@ public abstract class Proyectil extends GameObject {
 		return rango;
 	}
 
-
 	@Override
 	public void mover() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
