@@ -12,10 +12,6 @@ public abstract class Proyectil extends GameObject {
 		this.rango = rango;
 		this.daño = daño;
 		this.punto = punto;
-//		ImageIcon icono_imagen = new ImageIcon(this.getClass().getClassLoader().getResource("Imagenes/disparo.gif"));
-//		imagen = new JLabel(icono_imagen);
-//		ancho = icono_imagen.getIconWidth();
-//		alto = icono_imagen.getIconHeight();
 	}
 
 	public void remove() {
