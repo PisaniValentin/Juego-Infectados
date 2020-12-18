@@ -4,7 +4,6 @@ import Juego.Mapa;
 import Juego.Punto;
 
 public class InfectadoBeta extends Infectado {
-	protected Punto p;
 
 	public InfectadoBeta(Punto p, Mapa map) {
 		super(p, map);
