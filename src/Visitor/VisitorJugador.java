@@ -1,6 +1,5 @@
 package Visitor;
 
-import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
 import ObjetosTemporales.Congelacion;
 import ObjetosTemporales.DañoDoble;
@@ -40,9 +39,7 @@ public class VisitorJugador extends Visitor {
 
 	@Override
 	public void visit(Congelacion c) {
-		TemporizadorHielo tempo = new TemporizadorHielo(c, c.getMapa());
-		tempo.start();
-		obj.getMapa().getGui().remove(c.getImagen());
+		c.getMapa().crearTemporizadorHielo(c);
 	}
 
 	@Override

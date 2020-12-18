@@ -6,7 +6,9 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
+import Controladores.TemporizadorHielo;
 import GameObjects.GameObject;
+import ObjetosTemporales.Congelacion;
 import Personajes.InfectadoAlpha;
 import Personajes.InfectadoBeta;
 import Personajes.Personaje;
@@ -154,4 +156,10 @@ public class Mapa {
 
 		gui.repaint();
 	}
+	
+	public void crearTemporizadorHielo(Congelacion c) {
+		TemporizadorHielo tempo = new TemporizadorHielo(c, c.getMapa());
+		tempo.start();
+		this.getGui().remove(c.getImagen());
+	} 
 }
