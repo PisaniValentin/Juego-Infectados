@@ -53,7 +53,6 @@ public class VisitorJugador extends Visitor {
 	@Override
 	public void visit(Pocion pocion) {
 		obj.accept(pocion.getVisitor());
-		
 	}
 
 }
