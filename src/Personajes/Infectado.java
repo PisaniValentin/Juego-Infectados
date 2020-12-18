@@ -47,7 +47,7 @@ public class Infectado extends Personaje
 				mapa.getListaObjectos().remove(this);
 				Random r = new Random();
 				float chance = r.nextFloat();
-				if (chance < 0.30f || true) {
+				if (chance < 0.30f) {
 					Premio premio = fabrica.create();
 					premio.setMapa(this.mapa);
 					premio.setPunto(this.punto);
